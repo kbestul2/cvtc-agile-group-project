@@ -51,7 +51,7 @@ public class SearchController extends HttpServlet {
 			
 			request.setAttribute("movies", filteredMovies);
 			
-			target = "view-all.jsp";
+			target = "movies.jsp";
 			
 		} catch (MovieDaoException e) {
 			e.printStackTrace();

@@ -17,10 +17,10 @@ import edu.cvtc.agile.dao.impl.MovieDaoImpl;
 import edu.cvtc.agile.model.Movie;
 
 /**
- * Servlet implementation class ViewAllController
+ * Servlet implementation class MoviesController
  */
-@WebServlet("/ViewAll")
-public class ViewAllController extends HttpServlet {
+@WebServlet("/Movies")
+public class MoviesController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -43,7 +43,7 @@ public class ViewAllController extends HttpServlet {
 			
 			request.setAttribute("movies", movies);
 			
-			target = "view-all.jsp";
+			target = "movies.jsp";
 			
 		} catch (MovieDaoException e) {
 			e.printStackTrace();
@@ -56,7 +56,7 @@ public class ViewAllController extends HttpServlet {
 
 	private void sortMovies(final List<Movie> movies, final String sortType) {
 		switch(sortType) {
-		case "title":
+		case "name":
 			Collections.sort(movies, new NameComparator());
 			break;
 		default:

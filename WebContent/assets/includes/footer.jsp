@@ -1,1 +1,1 @@
-<div class="hero-unit">&copy; Copyright 2019 streamLINE Group</div>
+<footer><small>Copyright &copy; 2019 streamLINE Group</small></footer>
