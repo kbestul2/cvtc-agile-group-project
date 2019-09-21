@@ -21,10 +21,11 @@ every Movie in my Excel spreadsheet to a web page">
 				</c:when>
 				<c:otherwise>
 					<c:forEach var="movie" items="${movies}">
-						<h2>${movie.title}</h2>
+						<h2>${movie.name}</h2>
 						<p>
-							${movie.title} directed by ${movie.director} is ${movie.lengthInMinutes} minutes long.
-							<br>Genre(s): ${movie.genre}
+							${movie.name} is ${movie.length} minutes long.
+							<br>Original Release: ${movie.releaseDate}
+							<br>Stream Release: ${movie.streamDate}
 						</p>
 					</c:forEach>
 				</c:otherwise>

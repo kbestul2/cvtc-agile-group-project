@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.cvtc.agile.comparators.LengthComparator;
-import edu.cvtc.agile.comparators.TitleComparator;
+import edu.cvtc.agile.comparators.NameComparator;
 import edu.cvtc.agile.dao.MovieDao;
 import edu.cvtc.agile.dao.impl.MovieDaoException;
 import edu.cvtc.agile.dao.impl.MovieDaoImpl;
@@ -58,10 +57,7 @@ public class ViewAllController extends HttpServlet {
 	private void sortMovies(final List<Movie> movies, final String sortType) {
 		switch(sortType) {
 		case "title":
-			Collections.sort(movies, new TitleComparator());
-			break;
-		case "length":
-			Collections.sort(movies, new LengthComparator());
+			Collections.sort(movies, new NameComparator());
 			break;
 		default:
 			break;

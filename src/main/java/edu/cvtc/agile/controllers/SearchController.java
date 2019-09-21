@@ -36,25 +36,15 @@ public class SearchController extends HttpServlet {
 			
 			List<Movie> filteredMovies = null;
 			
-			String titleSearchButton = request.getParameter("titleSearch");
-			String directorSearchButton = request.getParameter("directorSearch");
+			String titleSearchButton = request.getParameter("nameSearch");
 			
 			if (titleSearchButton != null) {
 				
-				final String title = request.getParameter("title");
+				final String title = request.getParameter("name");
 				
 				filteredMovies = movies
 									   .stream()
-									   .filter((movie) -> movie.getTitle().equalsIgnoreCase(title))
-									   .collect(Collectors.toList());
-				
-			} else if (directorSearchButton != null) {
-				
-				final String director = request.getParameter("director");
-				
-				filteredMovies = movies
-									   .stream()
-									   .filter((movie) -> movie.getDirector().equalsIgnoreCase(director))
+									   .filter((movie) -> movie.getName().equalsIgnoreCase(title))
 									   .collect(Collectors.toList());
 				
 			}

@@ -1,1 +1,1 @@
-<div class="hero-unit">&copy; Copyright 2019 Kaleb Bestul</div>
+<div class="hero-unit">&copy; Copyright 2019 streamLINE Group</div>

@@ -6,58 +6,110 @@ public class Movie implements Serializable {
 
 	private static final long serialVersionUID = 6763824524233477194L;
 	
-	private String title;
-	private String director;
-	private Integer lengthInMinutes;
-	private String genre;
+	private String name;
+	private String releaseDate;
+	private String streamDate;
+	private String ratingText;
+	private int length;
+	private String description;
+	private float ratingNumber;
+	private String coverImgUrl;
+	private String trailerUrl;
 	
-	public Movie () {
-		
-	}
-	
-	public Movie(final String title, final String director, final Integer lengthInMinutes, final String genre) {
-		this.title = title;
-		this.director = director;
-		this.lengthInMinutes = lengthInMinutes;
-		this.genre = genre;
-	}
-
-	public String getTitle() {
-		return title;
+	public Movie(String name, String releaseDate, String streamDate, String ratingText, int length,
+			String description, float ratingNumber, String coverImgUrl, String trailerUrl) {
+		this.name = name;
+		this.releaseDate = releaseDate;
+		this.streamDate = streamDate;
+		this.ratingText = ratingText;
+		this.length = length;
+		this.description = description;
+		this.ratingNumber = ratingNumber;
+		this.coverImgUrl = coverImgUrl;
+		this.trailerUrl = trailerUrl;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public String getName() {
+		return name;
 	}
 
-	public String getDirector() {
-		return director;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setDirector(String director) {
-		this.director = director;
+	public String getReleaseDate() {
+		return releaseDate;
 	}
 
-	public Integer getLengthInMinutes() {
-		return lengthInMinutes;
+	public void setReleaseDate(String releaseDate) {
+		this.releaseDate = releaseDate;
 	}
 
-	public void setLengthInMinutes(Integer lengthInMinutes) {
-		this.lengthInMinutes = lengthInMinutes;
+	public String getStreamDate() {
+		return streamDate;
 	}
 
-	public String getGenre() {
-		return genre;
+	public void setStreamDate(String streamDate) {
+		this.streamDate = streamDate;
 	}
 
-	public void setGenre(String genre) {
-		this.genre = genre;
+	public String getRatingText() {
+		return ratingText;
+	}
+
+	public void setRatingText(String ratingText) {
+		this.ratingText = ratingText;
+	}
+
+	public int getLength() {
+		return length;
+	}
+
+	public void setLength(int length) {
+		this.length = length;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public float getRatingNumber() {
+		return ratingNumber;
+	}
+
+	public void setRatingNumber(float ratingNumber) {
+		this.ratingNumber = ratingNumber;
+	}
+
+	public String getCoverImgUrl() {
+		return coverImgUrl;
+	}
+
+	public void setCoverImgUrl(String coverImgUrl) {
+		this.coverImgUrl = coverImgUrl;
+	}
+
+	public String getTrailerUrl() {
+		return trailerUrl;
+	}
+
+	public void setTrailerUrl(String trailerUrl) {
+		this.trailerUrl = trailerUrl;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override
 	public String toString() {
-		return "Movie [title=" + title + ", director=" + director + ", lengthInMinutes=" + lengthInMinutes + ", genre="
-				+ genre + "]";
+		return "Movie [name=" + name + ", releaseDate=" + releaseDate + ", streamDate=" + streamDate + ", ratingText="
+				+ ratingText + ", length=" + length + ", description=" + description + ", ratingNumber=" + ratingNumber
+				+ ", coverImgUrl=" + coverImgUrl + ", trailerUrl=" + trailerUrl + "]";
 	}
 	
 }

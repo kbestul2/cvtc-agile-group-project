@@ -16,11 +16,6 @@
 				<input name="title">
 				<input type="submit" value="Search!" name="titleSearch">
 			</form>
-			<form action="Search" method="post">
-				<label for="director"><strong>Search by director:</strong></label>
-				<input name="director">
-				<input type="submit" value="Search!" name="directorSearch">
-			</form>
 		</div>
 		<hr>
 		<%@ include file="assets/includes/footer.jsp" %>
