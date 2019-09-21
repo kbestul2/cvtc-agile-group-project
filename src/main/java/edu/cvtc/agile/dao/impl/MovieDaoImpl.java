@@ -13,7 +13,7 @@ import edu.cvtc.agile.util.DBUtility;
 
 public class MovieDaoImpl implements MovieDao {
 	
-	private static final String SELECT_ALL_FROM_MOVIE = "select * from Movies";
+	private static final String SELECT_ALL_FROM_MOVIES = "select * from movies";
 
 	@Override
 	public List<Movie> retrieveMovies() throws MovieDaoException {
@@ -30,7 +30,7 @@ public class MovieDaoImpl implements MovieDao {
 			
 			statement.setQueryTimeout(DBUtility.TIMEOUT);
 			
-			final ResultSet resultSet =  statement.executeQuery(SELECT_ALL_FROM_MOVIE);
+			final ResultSet resultSet =  statement.executeQuery(SELECT_ALL_FROM_MOVIES);
 			
 			while (resultSet.next()) {
 				

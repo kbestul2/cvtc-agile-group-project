@@ -23,9 +23,15 @@ every Movie in my Excel spreadsheet to a web page">
 					<c:forEach var="movie" items="${movies}">
 						<h2>${movie.name}</h2>
 						<p>
-							${movie.name} is ${movie.length} minutes long.
-							<br>Original Release: ${movie.releaseDate}
-							<br>Stream Release: ${movie.streamDate}
+							Title: ${movie.name}<br>
+							Original Release: ${movie.releaseDate}<br>
+							Stream Release: ${movie.streamDate}<br>
+							Rating: ${movie.ratingText}<br>
+							Length: ${movie.length} minutes<br>
+							Description: ${movie.description}<br>
+							Rating: ${movie.ratingNumber}<br>
+							coverImgUrl: ${movie.coverImgUrl}<br>
+							trailerUrl: ${movie.trailerUrl}
 						</p>
 					</c:forEach>
 				</c:otherwise>
