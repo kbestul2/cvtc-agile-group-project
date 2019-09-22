@@ -13,15 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 import edu.cvtc.agile.comparators.NameComparator;
 import edu.cvtc.agile.dao.ContentDao;
 import edu.cvtc.agile.dao.impl.ContentDaoException;
-import edu.cvtc.agile.dao.impl.MovieDaoImpl;
+import edu.cvtc.agile.dao.impl.MusicDaoImpl;
 import edu.cvtc.agile.model.Content;
-import edu.cvtc.agile.model.Movie;
+import edu.cvtc.agile.model.Music;
 
 /**
- * Servlet implementation class MoviesController
+ * Servlet implementation class MusicController
  */
-@WebServlet("/Movies")
-public class MoviesController extends HttpServlet {
+@WebServlet("/Music")
+public class MusicController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -33,18 +33,18 @@ public class MoviesController extends HttpServlet {
 		
 		try {
 			
-			final ContentDao movieDao = new MovieDaoImpl();
-			final List<Content> movies = movieDao.retrieveContent();
+			final ContentDao musicDao = new MusicDaoImpl();
+			final List<Content> music = musicDao.retrieveContent();
 			
 //			final String sortType = request.getParameter("sortType");
 //			
 //			if (sortType != null) {
-//				sortMovies(movies, sortType);
+//				sortMusic(music, sortType);
 //			}
 			
-			request.setAttribute("movies", movies);
+			request.setAttribute("music", music);
 			
-			target = "movies.jsp";
+			target = "music.jsp";
 			
 		} catch (ContentDaoException e) {
 			e.printStackTrace();
@@ -55,10 +55,10 @@ public class MoviesController extends HttpServlet {
 		request.getRequestDispatcher(target).forward(request, response);
 	}
 
-//	private void sortMovies(final List<Movie> movies, final String sortType) {
+//	private void sortMusic(final List<Music> music, final String sortType) {
 //		switch(sortType) {
 //		case "name":
-//			Collections.sort(movies, new NameComparator());
+//			Collections.sort(music, new NameComparator());
 //			break;
 //		default:
 //			break;

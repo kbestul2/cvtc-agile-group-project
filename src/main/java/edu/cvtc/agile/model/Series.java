@@ -2,9 +2,9 @@ package edu.cvtc.agile.model;
 
 import java.io.Serializable;
 
-public class Movie extends Content implements Serializable {
-
-	private static final long serialVersionUID = 6763824524233477194L;
+public class Series extends Content implements Serializable {
+	
+	private static final long serialVersionUID = -6851644762029925697L;
 	
 	private String name;
 	private String releaseDate;
@@ -16,8 +16,9 @@ public class Movie extends Content implements Serializable {
 	private String coverImgUrl;
 	private String trailerUrl;
 	
-	public Movie(String name, String releaseDate, String streamDate, String ratingText, int length,
-			String description, float ratingNumber, String coverImgUrl, String trailerUrl) {
+	public Series(String name, String releaseDate, String streamDate, String ratingText, int length, String description,
+			float ratingNumber, String coverImgUrl, String trailerUrl) {
+		super();
 		this.name = name;
 		this.releaseDate = releaseDate;
 		this.streamDate = streamDate;
@@ -103,7 +104,7 @@ public class Movie extends Content implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Movie [name=" + name + ", releaseDate=" + releaseDate + ", streamDate=" + streamDate + ", ratingText="
+		return "Series [name=" + name + ", releaseDate=" + releaseDate + ", streamDate=" + streamDate + ", ratingText="
 				+ ratingText + ", length=" + length + ", description=" + description + ", ratingNumber=" + ratingNumber
 				+ ", coverImgUrl=" + coverImgUrl + ", trailerUrl=" + trailerUrl + "]";
 	}

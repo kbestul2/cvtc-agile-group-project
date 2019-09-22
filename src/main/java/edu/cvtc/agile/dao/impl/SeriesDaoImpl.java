@@ -9,17 +9,17 @@ import java.util.List;
 
 import edu.cvtc.agile.dao.ContentDao;
 import edu.cvtc.agile.model.Content;
-import edu.cvtc.agile.model.Movie;
+import edu.cvtc.agile.model.Series;
 import edu.cvtc.agile.util.DBUtility;
 
-public class MovieDaoImpl implements ContentDao {
+public class SeriesDaoImpl implements ContentDao {
 	
-	private static final String SELECT_ALL_FROM_MOVIES = "select * from movies";
+	private static final String SELECT_ALL_FROM_SERIES = "select * from shows";
 
 	@Override
 	public List<Content> retrieveContent() throws ContentDaoException {
 		
-		final List<Content> movies = new ArrayList<>();
+		final List<Content> series = new ArrayList<>();
 		
 		Connection connection = null;
 		Statement statement = null;
@@ -31,7 +31,7 @@ public class MovieDaoImpl implements ContentDao {
 			
 			statement.setQueryTimeout(DBUtility.TIMEOUT);
 			
-			final ResultSet resultSet =  statement.executeQuery(SELECT_ALL_FROM_MOVIES);
+			final ResultSet resultSet =  statement.executeQuery(SELECT_ALL_FROM_SERIES);
 			
 			while (resultSet.next()) {
 				
@@ -45,18 +45,18 @@ public class MovieDaoImpl implements ContentDao {
 				final String coverImgUrl = resultSet.getString("CoverImgUrl");
 				final String trailerUrl = resultSet.getString("TrailerUrl");
 				
-				movies.add(new Movie(name, releaseDate, streamDate, ratingText, length, description, ratingNumber, coverImgUrl, trailerUrl));
+				series.add(new Series(name, releaseDate, streamDate, ratingText, length, description, ratingNumber, coverImgUrl, trailerUrl));
 				
 			}
 			
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
-			throw new ContentDaoException("Error: Unable to retrieve movies from database.");
+			throw new ContentDaoException("Error: Unable to retrieve series from database.");
 		} finally {
 			DBUtility.closeConnections(connection, statement);
 		}
 		
-		return movies;
+		return series;
 	}
 
 }
