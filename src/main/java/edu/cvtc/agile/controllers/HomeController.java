@@ -1,8 +1,6 @@
 package edu.cvtc.agile.controllers;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,11 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.cvtc.agile.comparators.NameComparator;
-import edu.cvtc.agile.dao.ContentDao;
-import edu.cvtc.agile.dao.impl.ContentDaoException;
-import edu.cvtc.agile.dao.impl.MovieDaoImpl;
-import edu.cvtc.agile.model.Movie;
 
 /**
  * Servlet implementation class MoviesController
@@ -32,9 +25,9 @@ public class HomeController extends HttpServlet {
 		
 		target = "index.jsp";
 		
+//	Featured Content
 //		try {
 //			
-//			put code for "featured" content here
 //		
 //			target = "index.jsp";
 //			

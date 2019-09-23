@@ -20,7 +20,6 @@
 						<c:forEach var="music" items="${music}">
 							<h2>${music.name}</h2>
 							<p>
-								Title: ${music.name}<br>
 								Original Release: ${music.releaseDate}<br>
 								Stream Release: ${music.streamDate}<br>
 								Artist: ${music.artist}<br>

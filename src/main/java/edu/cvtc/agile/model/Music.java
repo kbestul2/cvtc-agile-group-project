@@ -1,14 +1,15 @@
 package edu.cvtc.agile.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class Music extends Content implements Serializable {
 
 	private static final long serialVersionUID = 3605785336363110316L;
 
 	private String name;
-	private String releaseDate;
-	private String streamDate;
+	private Date releaseDate;
+	private Date streamDate;
 	private String artist;
 	private String album;
 	private int lengthInMinutes;
@@ -16,7 +17,7 @@ public class Music extends Content implements Serializable {
 	private float rating;
 	private String coverImgUrl;
 
-	public Music(String name, String releaseDate, String streamDate, String artist, String album, int lengthInMinutes,
+	public Music(String name, Date releaseDate, Date streamDate, String artist, String album, int lengthInMinutes,
 			int lengthInSeconds, float ratingNumber, String coverImgUrl) {
 		super();
 		this.name = name;
@@ -38,19 +39,19 @@ public class Music extends Content implements Serializable {
 		this.name = name;
 	}
 
-	public String getReleaseDate() {
+	public Date getReleaseDate() {
 		return releaseDate;
 	}
 
-	public void setReleaseDate(String releaseDate) {
+	public void setReleaseDate(Date releaseDate) {
 		this.releaseDate = releaseDate;
 	}
 
-	public String getStreamDate() {
+	public Date getStreamDate() {
 		return streamDate;
 	}
 
-	public void setStreamDate(String streamDate) {
+	public void setStreamDate(Date streamDate) {
 		this.streamDate = streamDate;
 	}
 

@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.cvtc.agile.comparators.NameComparator;
-import edu.cvtc.agile.dao.ContentDao;
+import edu.cvtc.agile.comparators.ContentNameComparator;
+import edu.cvtc.agile.comparators.ContentStreamReleaseComparator;
+import edu.cvtc.agile.dao.MovieDao;
 import edu.cvtc.agile.dao.impl.ContentDaoException;
 import edu.cvtc.agile.dao.impl.MovieDaoImpl;
-import edu.cvtc.agile.model.Content;
 import edu.cvtc.agile.model.Movie;
 
 /**
@@ -33,14 +33,14 @@ public class MoviesController extends HttpServlet {
 		
 		try {
 			
-			final ContentDao movieDao = new MovieDaoImpl();
-			final List<Content> movies = movieDao.retrieveContent();
+			final MovieDao movieDao = new MovieDaoImpl();
+			final List<Movie> movies = movieDao.retrieveMovies();
 			
-//			final String sortType = request.getParameter("sortType");
-//			
-//			if (sortType != null) {
-//				sortMovies(movies, sortType);
-//			}
+			final String sortType = request.getParameter("sortType");
+			
+			if (sortType != null) {
+				sortMovies(movies, sortType);
+			}
 			
 			request.setAttribute("movies", movies);
 			
@@ -55,15 +55,18 @@ public class MoviesController extends HttpServlet {
 		request.getRequestDispatcher(target).forward(request, response);
 	}
 
-//	private void sortMovies(final List<Movie> movies, final String sortType) {
-//		switch(sortType) {
-//		case "name":
-//			Collections.sort(movies, new NameComparator());
-//			break;
-//		default:
-//			break;
-//		}
-//	}
+	private void sortMovies(final List<Movie> movies, final String sortType) {
+		switch(sortType) {
+		case "name":
+			Collections.sort(movies, new ContentNameComparator());
+			break;
+		case "streamRelease":
+			Collections.sort(movies, new ContentStreamReleaseComparator());
+			break;
+		default:
+			break;
+		}
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

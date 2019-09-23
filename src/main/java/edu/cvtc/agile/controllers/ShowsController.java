@@ -10,18 +10,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.cvtc.agile.comparators.NameComparator;
-import edu.cvtc.agile.dao.ContentDao;
+import edu.cvtc.agile.comparators.ContentNameComparator;
+import edu.cvtc.agile.dao.ShowDao;
 import edu.cvtc.agile.dao.impl.ContentDaoException;
-import edu.cvtc.agile.dao.impl.SeriesDaoImpl;
-import edu.cvtc.agile.model.Content;
-import edu.cvtc.agile.model.Series;
+import edu.cvtc.agile.dao.impl.ShowDaoImpl;
+import edu.cvtc.agile.model.Show;
 
 /**
- * Servlet implementation class SeriesController
+ * Servlet implementation class ShowsController
  */
-@WebServlet("/Series")
-public class SeriesController extends HttpServlet {
+@WebServlet("/Shows")
+public class ShowsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -33,18 +32,18 @@ public class SeriesController extends HttpServlet {
 		
 		try {
 			
-			final ContentDao seriesDao = new SeriesDaoImpl();
-			final List<Content> series = seriesDao.retrieveContent();
+			final ShowDao showDao = new ShowDaoImpl();
+			final List<Show> shows = showDao.retrieveShows();
 			
 //			final String sortType = request.getParameter("sortType");
 //			
 //			if (sortType != null) {
-//				sortSeries(series, sortType);
+//				sortShows(shows, sortType);
 //			}
 			
-			request.setAttribute("series", series);
+			request.setAttribute("shows", shows);
 			
-			target = "tv.jsp";
+			target = "shows.jsp";
 			
 		} catch (ContentDaoException e) {
 			e.printStackTrace();
@@ -55,10 +54,10 @@ public class SeriesController extends HttpServlet {
 		request.getRequestDispatcher(target).forward(request, response);
 	}
 
-//	private void sortSeries(final List<Series> series, final String sortType) {
+//	private void sortShows(final List<Content> shows, final String sortType) {
 //		switch(sortType) {
 //		case "name":
-//			Collections.sort(series, new NameComparator());
+//			Collections.sort(shows, new NameComparator());
 //			break;
 //		default:
 //			break;

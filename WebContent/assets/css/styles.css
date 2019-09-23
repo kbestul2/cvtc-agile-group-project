@@ -1,52 +1,32 @@
-body{
+body {
 	background-color: rgb(190, 190, 190);
 	background-image: url(../images/whiteAngles.jpg);
-	background-repeat: no-repeat;
+	background-repeat: repeat-y;
 	font-family: sans-serif;
 	color: #fff;
 }
 
-#wrapper{
+#wrapper {
 	background-color: rgba(78, 78, 78, 0.22);
 	border-radius: 5px;
 }
 
-h1{
+h1 {
 	font-family: Audiowide;
 	padding-bottom: 0;
 	font-size: 3.5em;
 	margin-bottom: 0;
 }
 
-#accent{
+#accent {
 	color: #018aff;
 }
 
-nav{
-	background-color: rgba(78, 78, 78, 0.60);
-	padding-top: 0;
-	font-family: Jura;
-	font-size: 2em;
-	display: flex;
-	justify-content: space-evenly;
- 	text-transform: uppercase;
+#mainContent {
+	min-height: 80em;
 }
 
-nav > a{
-	text-decoration: none;
-	color: #fff;
-}
-
-nav > a:hover{
-	text-decoration: underline;
-	color: #000;
-}
-
-#mainContent{
-	height: 80em;
-}
-
-footer{
-	text-align: center; 
+footer {
+	text-align: center;
 	color: #018aff;
 }

@@ -20,7 +20,6 @@
 						<c:forEach var="movie" items="${movies}">
 							<h2>${movie.name}</h2>
 							<p>
-								Title: ${movie.name}<br>
 								Original Release: ${movie.releaseDate}<br>
 								Stream Release: ${movie.streamDate}<br>
 								Rating: ${movie.ratingText}<br>

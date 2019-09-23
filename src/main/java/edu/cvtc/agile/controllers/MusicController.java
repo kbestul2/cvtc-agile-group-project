@@ -10,11 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.cvtc.agile.comparators.NameComparator;
-import edu.cvtc.agile.dao.ContentDao;
+import edu.cvtc.agile.comparators.ContentNameComparator;
+import edu.cvtc.agile.dao.MusicDao;
 import edu.cvtc.agile.dao.impl.ContentDaoException;
 import edu.cvtc.agile.dao.impl.MusicDaoImpl;
-import edu.cvtc.agile.model.Content;
 import edu.cvtc.agile.model.Music;
 
 /**
@@ -33,8 +32,8 @@ public class MusicController extends HttpServlet {
 		
 		try {
 			
-			final ContentDao musicDao = new MusicDaoImpl();
-			final List<Content> music = musicDao.retrieveContent();
+			final MusicDao musicDao = new MusicDaoImpl();
+			final List<Music> music = musicDao.retrieveMusic();
 			
 //			final String sortType = request.getParameter("sortType");
 //			

@@ -1,7 +1,17 @@
 package edu.cvtc.agile.model;
 
-public abstract class Content {
+import java.sql.Date;
 
+public abstract class Content {
+	
+	public abstract String getName();
+	
+	public abstract Date getReleaseDate();
+
+	public abstract Date getStreamDate();
+	
+	//public abstract float getRating();
+	
 	public abstract String toString();
 	
 }

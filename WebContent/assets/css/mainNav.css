@@ -1,0 +1,73 @@
+.mainNav {
+	background-color: rgba(78, 78, 78, 0.60);
+	font-family: Jura;
+ 	text-transform: uppercase;
+ 	font-size: 2em;
+}
+
+.mainNav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.mainNav ul li {
+	display: inline-block;
+	margin: 0 -7px 0 0;
+	position: relative;
+}
+
+.mainNav a {
+	display: block;
+    padding: 0 .85em;
+    color: #FFF;
+    line-height: 1.2em;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.mainNav a:hover {
+	color: #000;
+	background-color: #018aff;
+}
+
+/* Hide dropdowns by default */
+.mainNav ul ul {
+    display: none;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+}
+
+/* Display dropdowns on hover */
+.mainNav ul li:hover > ul {
+    display: inherit;
+}
+
+/* First tier dropdown */
+.mainNav ul ul li {
+	/*min-width: 5em;*/
+    display: list-item;
+    background-color: rgba(78, 78, 78, 0.60);
+}
+
+/* Second, third and more tiers */
+.mainNav ul ul ul {
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
+
+/*dropdown symbol */
+.mainNav li > a:after { 
+	font-size: .5em;
+	vertical-align: middle;
+	content: ' \25BC'; 
+}
+
+.mainNav li > a:only-child:after {
+	content: '';
+}
