@@ -7,7 +7,7 @@ public class Music extends Content implements Serializable {
 
 	private static final long serialVersionUID = 3605785336363110316L;
 
-	private String name;
+	private String title;
 	private Date releaseDate;
 	private Date streamDate;
 	private String artist;
@@ -17,10 +17,10 @@ public class Music extends Content implements Serializable {
 	private float rating;
 	private String coverImgUrl;
 
-	public Music(String name, Date releaseDate, Date streamDate, String artist, String album, int lengthInMinutes,
+	public Music(String title, Date releaseDate, Date streamDate, String artist, String album, int lengthInMinutes,
 			int lengthInSeconds, float ratingNumber, String coverImgUrl) {
 		super();
-		this.name = name;
+		this.title = title;
 		this.releaseDate = releaseDate;
 		this.streamDate = streamDate;
 		this.artist = artist;
@@ -31,12 +31,12 @@ public class Music extends Content implements Serializable {
 		this.coverImgUrl = coverImgUrl;
 	}
 
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public Date getReleaseDate() {
@@ -105,7 +105,7 @@ public class Music extends Content implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Music [name=" + name + ", releaseDate=" + releaseDate + ", streamDate=" + streamDate + ", artist="
+		return "Music [title=" + title + ", releaseDate=" + releaseDate + ", streamDate=" + streamDate + ", artist="
 				+ artist + ", album=" + album + ", lengthInMinutes=" + lengthInMinutes + ", lengthInSeconds="
 				+ lengthInSeconds + ", ratingNumber=" + rating + ", coverImgUrl=" + coverImgUrl + "]";
 	}

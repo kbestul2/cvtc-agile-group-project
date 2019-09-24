@@ -7,97 +7,107 @@ public class Show extends Content implements Serializable {
 	
 	private static final long serialVersionUID = -6851644762029925697L;
 	
-	private String name;
+	private String title;
 	private Date releaseDate;
 	private Date streamDate;
-	private String ratingText;
+	private String contentRating;
+	private int season;
+	private int episodes;
 	private String description;
-	private float ratingNumber;
+	private float userRating;
 	private String coverImgUrl;
 	private String trailerUrl;
+	private String platform;
 	
-	public Show(String name, Date releaseDate, Date streamDate, String ratingText, String description,
-			float ratingNumber, String coverImgUrl, String trailerUrl) {
+	public Show(String title, Date releaseDate, Date streamDate, String contentRating, int season, int episodes,
+			String description, float userRating, String coverImgUrl, String trailerUrl, String platform) {
 		super();
-		this.name = name;
+		this.title = title;
 		this.releaseDate = releaseDate;
 		this.streamDate = streamDate;
-		this.ratingText = ratingText;
+		this.contentRating = contentRating;
+		this.season = season;
+		this.episodes = episodes;
 		this.description = description;
-		this.ratingNumber = ratingNumber;
+		this.userRating = userRating;
 		this.coverImgUrl = coverImgUrl;
 		this.trailerUrl = trailerUrl;
+		this.platform = platform;
 	}
-
-	public String getName() {
-		return name;
+	
+	public String getTitle() {
+		return title;
 	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-
 	public Date getReleaseDate() {
 		return releaseDate;
 	}
-
 	public void setReleaseDate(Date releaseDate) {
 		this.releaseDate = releaseDate;
 	}
-
 	public Date getStreamDate() {
 		return streamDate;
 	}
-
 	public void setStreamDate(Date streamDate) {
 		this.streamDate = streamDate;
 	}
-
-	public String getRatingText() {
-		return ratingText;
+	public String getContentRating() {
+		return contentRating;
 	}
-
-	public void setRatingText(String ratingText) {
-		this.ratingText = ratingText;
+	public void setContentRating(String contentRating) {
+		this.contentRating = contentRating;
 	}
-
+	public int getSeason() {
+		return season;
+	}
+	public void setSeason(int season) {
+		this.season = season;
+	}
+	public int getEpisodes() {
+		return episodes;
+	}
+	public void setEpisodes(int episodes) {
+		this.episodes = episodes;
+	}
 	public String getDescription() {
 		return description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public float getRatingNumber() {
-		return ratingNumber;
+	public float getUserRating() {
+		return userRating;
 	}
-
-	public void setRatingNumber(float ratingNumber) {
-		this.ratingNumber = ratingNumber;
+	public void setUserRating(float userRating) {
+		this.userRating = userRating;
 	}
-
 	public String getCoverImgUrl() {
 		return coverImgUrl;
 	}
-
 	public void setCoverImgUrl(String coverImgUrl) {
 		this.coverImgUrl = coverImgUrl;
 	}
-
 	public String getTrailerUrl() {
 		return trailerUrl;
 	}
-
 	public void setTrailerUrl(String trailerUrl) {
 		this.trailerUrl = trailerUrl;
+	}
+	public String getPlatform() {
+		return platform;
+	}
+	public void setPlatform(String platform) {
+		this.platform = platform;
 	}
 
 	@Override
 	public String toString() {
-		return "Series [name=" + name + ", releaseDate=" + releaseDate + ", streamDate=" + streamDate + ", ratingText="
-				+ ratingText + ", description=" + description + ", ratingNumber=" + ratingNumber
-				+ ", coverImgUrl=" + coverImgUrl + ", trailerUrl=" + trailerUrl + "]";
+		return "Show [title=" + title + ", releaseDate=" + releaseDate + ", streamDate=" + streamDate + ", contentRating="
+				+ contentRating + ", season=" + season + ", episodes=" + episodes + ", description=" + description
+				+ ", userRating=" + userRating + ", coverImgUrl=" + coverImgUrl + ", trailerUrl=" + trailerUrl
+				+ ", platform=" + platform + "]";
 	}
 	
 }

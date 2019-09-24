@@ -4,7 +4,7 @@
 		<li><a href ="Movies">Movies</a>
 			<!-- First tier drop down -->
 			<ul>
-				<li><a href="Movies?sortType=name">By Title</a></li>
+				<li><a href="Movies?sortType=title">By Title</a></li>
 				<li><a href="Movies?sortType=streamRelease">By Stream Release</a></li>
 				<li><a href="#">TEST</a>
 					<!-- Second tier drop down -->

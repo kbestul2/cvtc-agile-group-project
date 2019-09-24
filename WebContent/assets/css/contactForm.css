@@ -1,0 +1,64 @@
+#contactContent{
+	height: 30em;
+	width: 80%;
+	font-family: sans-serif;
+	margin: auto;
+	margin-top: 10em;
+	background-color: rgba(78, 78, 78, 0.60); 
+}
+
+#contactContent > p{
+	font-family: Maven Pro;
+	font-size: 2.5em;
+	text-align: center;
+	float: left;
+	padding-top: 2.75em;
+	padding-left: 1em; 
+}
+
+form {
+	position: relative; 
+	max-width: 500px;
+	margin-left: 50%;
+	height 20em;
+	padding-top: 4em;
+}
+
+.feedbackText {
+	font-family: Jura;
+	font-weight:500;
+	font-size: 1.5em;
+	border-radius: 5px;
+	line-height: 20px;
+	background-color: rgba(1, 138, 255, 0.6);
+	color: #fff;
+	border:2px solid #fff;
+	padding: 20px;
+	margin-bottom: 15px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.feedbackText:focus {
+	border:2px solid #fff; 
+}
+
+textarea {
+	height: 100px;
+	line-height: 150%;
+	resize: vertical;
+}
+
+#submit {
+	width: 150px;
+	height: 50px;
+	margin: 0 auto;
+	background-color: #f4f6f9;
+	border-radius: 16px;
+	outline: 0;
+}
+
+#submit:hover {
+	background-color: rgba(1, 138, 255, 0.6);
+	color: #f4f6f9;
+}

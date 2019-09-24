@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.cvtc.agile.comparators.ContentNameComparator;
+import edu.cvtc.agile.comparators.ContentTitleComparator;
 import edu.cvtc.agile.comparators.ContentStreamReleaseComparator;
 import edu.cvtc.agile.dao.MovieDao;
 import edu.cvtc.agile.dao.impl.ContentDaoException;
@@ -57,8 +57,8 @@ public class MoviesController extends HttpServlet {
 
 	private void sortMovies(final List<Movie> movies, final String sortType) {
 		switch(sortType) {
-		case "name":
-			Collections.sort(movies, new ContentNameComparator());
+		case "title":
+			Collections.sort(movies, new ContentTitleComparator());
 			break;
 		case "streamRelease":
 			Collections.sort(movies, new ContentStreamReleaseComparator());

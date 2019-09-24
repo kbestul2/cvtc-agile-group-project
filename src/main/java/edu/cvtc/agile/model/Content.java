@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public abstract class Content {
 	
-	public abstract String getName();
+	public abstract String getTitle();
 	
 	public abstract Date getReleaseDate();
 

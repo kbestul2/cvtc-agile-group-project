@@ -35,16 +35,19 @@ public class ShowDaoImpl implements ShowDao {
 			
 			while (resultSet.next()) {
 				
-				final String name = resultSet.getString("Name");
+				final String title = resultSet.getString("Name");
 				final Date releaseDate = resultSet.getDate("ReleaseDate");
 				final Date streamDate = resultSet.getDate("StreamDate");
-				final String ratingText = resultSet.getString("Rating");
+				final String contentRating = "TEMP";//resultSet.getString("ContentRating");
+				final int season = resultSet.getInt("Season");
+				final int episodes = resultSet.getInt("Episodes");
 				final String description = resultSet.getString("Description");
-				final float ratingNumber = resultSet.getFloat("Rating");
+				final float userRating = 0.0f;//resultSet.getFloat("UserRating");
 				final String coverImgUrl = resultSet.getString("CoverImgUrl");
-				final String trailerUrl = resultSet.getString("TrailerUrl");
+				final String trailerUrl = "https://www.youtube.com/watch?v=" + "TEMP";//resultSet.getString("TrailerKey");
+				final String platform = "TEMP";//resultSet.getString("Platform");
 				
-				shows.add(new Show(name, releaseDate, streamDate, ratingText, description, ratingNumber, coverImgUrl, trailerUrl));
+				shows.add(new Show(title, releaseDate, streamDate, contentRating, season, episodes, description, userRating, coverImgUrl, trailerUrl, platform));
 				
 			}
 			

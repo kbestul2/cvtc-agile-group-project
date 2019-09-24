@@ -7,35 +7,37 @@ public class Movie extends Content implements Serializable {
 
 	private static final long serialVersionUID = 6763824524233477194L;
 	
-	private String name;
+	private String title;
 	private Date releaseDate;
 	private Date streamDate;
-	private String ratingText;
+	private String contentRating;
 	private int length;
 	private String description;
-	private float ratingNumber;
+	private float userRating;
 	private String coverImgUrl;
 	private String trailerUrl;
+	private String platform;
 	
-	public Movie(String name, Date releaseDate, Date streamDate, String ratingText, int length,
-			String description, float ratingNumber, String coverImgUrl, String trailerUrl) {
-		this.name = name;
+	public Movie(String title, Date releaseDate, Date streamDate, String contentRating, int length,
+			String description, float userRating, String coverImgUrl, String trailerUrl, String platform) {
+		this.title = title;
 		this.releaseDate = releaseDate;
 		this.streamDate = streamDate;
-		this.ratingText = ratingText;
+		this.contentRating = contentRating;
 		this.length = length;
 		this.description = description;
-		this.ratingNumber = ratingNumber;
+		this.userRating = userRating;
 		this.coverImgUrl = coverImgUrl;
 		this.trailerUrl = trailerUrl;
+		this.platform = platform;
 	}
 
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public Date getReleaseDate() {
@@ -54,12 +56,12 @@ public class Movie extends Content implements Serializable {
 		this.streamDate = streamDate;
 	}
 
-	public String getRatingText() {
-		return ratingText;
+	public String getContentRating() {
+		return contentRating;
 	}
 
-	public void setRatingText(String ratingText) {
-		this.ratingText = ratingText;
+	public void setContentRating(String contentRating) {
+		this.contentRating = contentRating;
 	}
 
 	public int getLength() {
@@ -78,12 +80,12 @@ public class Movie extends Content implements Serializable {
 		this.description = description;
 	}
 
-	public float getRatingNumber() {
-		return ratingNumber;
+	public float getUserRating() {
+		return userRating;
 	}
 
-	public void setRatingNumber(float ratingNumber) {
-		this.ratingNumber = ratingNumber;
+	public void setUserRating(float userRating) {
+		this.userRating = userRating;
 	}
 
 	public String getCoverImgUrl() {
@@ -102,11 +104,20 @@ public class Movie extends Content implements Serializable {
 		this.trailerUrl = trailerUrl;
 	}
 
+	public String getPlatform() {
+		return platform;
+	}
+
+	public void setPlatform(String platform) {
+		this.platform = platform;
+	}
+
 	@Override
 	public String toString() {
-		return "Movie [name=" + name + ", releaseDate=" + releaseDate + ", streamDate=" + streamDate + ", ratingText="
-				+ ratingText + ", length=" + length + ", description=" + description + ", ratingNumber=" + ratingNumber
-				+ ", coverImgUrl=" + coverImgUrl + ", trailerUrl=" + trailerUrl + "]";
+		return "Movie [title=" + title + ", releaseDate=" + releaseDate + ", streamDate=" + streamDate
+				+ ", contentRating=" + contentRating + ", length=" + length + ", description=" + description
+				+ ", userRating=" + userRating + ", coverImgUrl=" + coverImgUrl + ", trailerUrl=" + trailerUrl
+				+ ", platform=" + platform + "]";
 	}
 	
 }

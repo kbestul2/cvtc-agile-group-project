@@ -14,7 +14,7 @@ import edu.cvtc.agile.util.DBUtility;
 
 public class MovieDaoImpl implements MovieDao {
 	
-	private static final String SELECT_ALL_FROM_MOVIES = "select * from movies";
+	private static final String SELECT_ALL_FROM_MOVIES = "SELECT Title, ReleaseDate, StreamDate, ratings.Rating AS ContentRating, Length, Description, UserRating, CoverImgUrl, TrailerKey, Platform FROM StreamLINE.movies INNER JOIN ratings USING (RatingID)";
 
 	@Override
 	public List<Movie> retrieveMovies() throws ContentDaoException {
@@ -35,18 +35,19 @@ public class MovieDaoImpl implements MovieDao {
 			
 			while (resultSet.next()) {
 				
-				final String name = resultSet.getString("Name");
+				final String title = resultSet.getString("Title");
 				final Date releaseDate = resultSet.getDate("ReleaseDate");
 				final Date streamDate = resultSet.getDate("StreamDate");
-				final String ratingText = resultSet.getString("Rating");
+				final String contentRating = resultSet.getString("ContentRating");
 				final int length = resultSet.getInt("Length");
 				final String description = resultSet.getString("Description");
-				final float ratingNumber = resultSet.getFloat("Rating");
+				final float userRating = resultSet.getFloat("UserRating");
 				final String coverImgUrl = resultSet.getString("CoverImgUrl");
-				final String trailerUrl = resultSet.getString("TrailerUrl");
+				final String trailerUrl = "https://www.youtube.com/watch?v=" + resultSet.getString("TrailerKey");
+				final String platform = resultSet.getString("Platform");
 				
-				if (name != null) {
-					movies.add(new Movie(name, releaseDate, streamDate, ratingText, length, description, ratingNumber, coverImgUrl, trailerUrl));
+				if (title != null) {
+					movies.add(new Movie(title, releaseDate, streamDate, contentRating, length, description, userRating, coverImgUrl, trailerUrl, platform));
 				}
 				
 			}

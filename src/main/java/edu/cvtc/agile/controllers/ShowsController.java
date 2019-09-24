@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.cvtc.agile.comparators.ContentNameComparator;
+import edu.cvtc.agile.comparators.ContentTitleComparator;
 import edu.cvtc.agile.dao.ShowDao;
 import edu.cvtc.agile.dao.impl.ContentDaoException;
 import edu.cvtc.agile.dao.impl.ShowDaoImpl;

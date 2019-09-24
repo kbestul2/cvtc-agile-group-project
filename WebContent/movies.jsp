@@ -18,16 +18,17 @@
 					</c:when>
 					<c:otherwise>
 						<c:forEach var="movie" items="${movies}">
-							<h2>${movie.name}</h2>
+							<h2>${movie.title}</h2>
 							<p>
 								Original Release: ${movie.releaseDate}<br>
 								Stream Release: ${movie.streamDate}<br>
-								Rating: ${movie.ratingText}<br>
+								Content Rating: ${movie.contentRating}<br>
 								Length: ${movie.length} minutes<br>
 								Description: ${movie.description}<br>
-								Rating: ${movie.ratingNumber}<br>
+								User Rating: ${movie.userRating}<br>
 								coverImgUrl: ${movie.coverImgUrl}<br>
-								trailerUrl: ${movie.trailerUrl}
+								trailerUrl: ${movie.trailerUrl}<br>
+								platform: ${movie.platform}
 							</p>
 						</c:forEach>
 					</c:otherwise>

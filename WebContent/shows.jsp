@@ -18,15 +18,18 @@
 					</c:when>
 					<c:otherwise>
 						<c:forEach var="show" items="${shows}">
-							<h2>${show.name}</h2>
+							<h2>${show.title}</h2>
 							<p>
 								Original Release: ${show.releaseDate}<br>
 								Stream Release: ${show.streamDate}<br>
-								Rating: ${show.ratingText}<br>
+								Content Rating: ${show.contentRating}<br>
+								Season: ${show.season}<br>
+								Episodes: ${show.episodes}<br>
 								Description: ${show.description}<br>
-								Rating: ${show.ratingNumber}<br>
+								User Rating: ${show.userRating}<br>
 								coverImgUrl: ${show.coverImgUrl}<br>
-								trailerUrl: ${show.trailerUrl}
+								trailerUrl: ${show.trailerUrl}<br>
+								platform: ${show.platform}
 							</p>
 						</c:forEach>
 					</c:otherwise>
