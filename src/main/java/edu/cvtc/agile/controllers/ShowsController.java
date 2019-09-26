@@ -19,6 +19,7 @@ import edu.cvtc.agile.model.Show;
 /**
  * Servlet implementation class ShowsController
  */
+@SuppressWarnings("unused")
 @WebServlet("/Shows")
 public class ShowsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

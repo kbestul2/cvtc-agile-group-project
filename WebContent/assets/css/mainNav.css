@@ -2,27 +2,27 @@
 	background-color: rgba(78, 78, 78, 0.60);
 	font-family: Jura;
  	text-transform: uppercase;
- 	font-size: 2em;
+ 	font-size: 2rem;
 }
 
 .mainNav ul {
     padding: 0;
     margin: 0;
     list-style: none;
-    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .mainNav ul li {
 	display: inline-block;
-	margin: 0 -7px 0 0;
 	position: relative;
 }
 
 .mainNav a {
 	display: block;
-    padding: 0 .85em;
+    padding: 0 1.6rem;
     color: #FFF;
-    line-height: 1.2em;
+    line-height: 2.4rem;
     text-decoration: none;
     white-space: nowrap;
 }
@@ -49,7 +49,7 @@
 
 /* First tier dropdown */
 .mainNav ul ul li {
-	/*min-width: 5em;*/
+	/*min-width: 5rem;*/
     display: list-item;
     background-color: rgba(78, 78, 78, 0.60);
 }
@@ -63,7 +63,7 @@
 
 /*dropdown symbol */
 .mainNav li > a:after { 
-	font-size: .5em;
+	font-size: 1rem;
 	vertical-align: middle;
 	content: ' \25BC'; 
 }
@@ -71,3 +71,19 @@
 .mainNav li > a:only-child:after {
 	content: '';
 }
+
+@media only screen and (max-width: 54rem) {
+	
+	/* Replace flexbox */
+	.mainNav ul {
+	    display: block;
+	    justify-content: normal;
+	    text-align: center;
+	}
+	
+	.mainNav ul li {
+		margin: 0 -7px 0 0;
+	}
+	
+}
+

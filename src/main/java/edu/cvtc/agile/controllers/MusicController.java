@@ -19,6 +19,7 @@ import edu.cvtc.agile.model.Music;
 /**
  * Servlet implementation class MusicController
  */
+@SuppressWarnings("unused")
 @WebServlet("/Music")
 public class MusicController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
