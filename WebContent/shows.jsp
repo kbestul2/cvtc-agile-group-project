@@ -8,7 +8,14 @@
 	</head>
 	<body>
 		<div id="wrapper">
-			<h1>TV</h1>
+		<div class = "searchDiv">
+				<form class = "search" action = "Search" method = "post">
+					<label for= "shows"><strong>Search Shows:</strong></label>
+					<input name="shows">
+					<button type="submit"><i class="fa fa-search"></i></button>
+				</form>
+				</div>
+			<h1>Shows</h1>
 			<%@ include file="assets/includes/nav.jsp" %>
 			<div id="mainContent">
 				<!-- Output the shows list -->
@@ -38,4 +45,8 @@
 			<%@ include file="assets/includes/footer.jsp" %>
 		</div>
 	</body>
+	<link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Jura' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Maven Pro' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </html>

@@ -20,4 +20,7 @@
 			<%@ include file="assets/includes/footer.jsp" %>
 		</div>
 	</body>
+	<link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Jura' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Maven Pro' rel='stylesheet'>
 </html>

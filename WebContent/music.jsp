@@ -8,6 +8,13 @@
 	</head>
 	<body>
 		<div id="wrapper">
+		<div class = "searchDiv">
+				<form class= "search"action = "Search" method = "post">
+					<label for= "music"><strong>Search Music:</strong></label>
+					<input name="music">
+					<button type="submit"><i class="fa fa-search"></i></button>
+				</form>
+				</div>
 			<h1>Music</h1>
 			<%@ include file="assets/includes/nav.jsp" %>
 			<div id="mainContent">
@@ -34,4 +41,8 @@
 			<%@ include file="assets/includes/footer.jsp" %>
 		</div>
 	</body>
+	<link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Jura' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Maven Pro' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </html>
