@@ -26,3 +26,42 @@ To fix servlet-api.jar errors:
 -Click Apply  
   
 *Note: You may need to do something similar for the Maven Dependencies and the JRE System Library (jdk1.8.0_221)  
+
+
+#Database Queries
+
+##Movies
+
+```
+SELECT m.*, r.Rating AS ContentRating, GROUP_CONCAT(g.Name SEPARATOR ', ') AS Genre
+FROM movies m
+	INNER JOIN ratings r USING (RatingID)
+	INNER JOIN movie_genre mg USING (MovieID)
+	INNER JOIN genres g USING (GenreID)
+GROUP BY m.MovieID
+```
+
+##Shows
+
+```
+SELECT s.*, r.Rating AS ContentRating, GROUP_CONCAT(g.Name SEPARATOR ', ') AS Genre
+FROM shows s
+	INNER JOIN ratings r USING (RatingID)
+	INNER JOIN show_genre mg USING (ShowID)
+	INNER JOIN genres g USING (GenreID)
+GROUP BY s.ShowID
+```
+
+##Music
+
+###Database is not complete, currently only returns 1 row
+
+```
+SELECT m.*, group_concat(g.Name SEPARATOR ', ') AS Genre
+FROM music m
+	INNER JOIN album_genre AS ag USING (AlbumID)
+  INNER JOIN genres AS g USING (GenreID)
+GROUP BY m.AlbumID
+```
+
+
