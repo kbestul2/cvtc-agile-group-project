@@ -30,10 +30,23 @@ To fix servlet-api.jar errors:
 
 # Database Queries
 
+Each query will be typed out for each included field instead of using * for clarity.
+
 ## Movies
 
 ```
-SELECT m.*, r.Rating AS ContentRating, GROUP_CONCAT(g.Name SEPARATOR ', ') AS Genre
+SELECT MovieID, 
+   	Title, 
+	ReleaseDate, 
+	StreamDate, 
+	Length, 
+	Description, 
+	UserRating, 
+	CoverImgUrl, 
+	TrailerKey, 
+	Platform, 
+	r.Rating AS ContentRating, 
+	GROUP_CONCAT(g.Name SEPARATOR ', ') AS Genre
 FROM movies m
 	INNER JOIN ratings r USING (RatingID)
 	INNER JOIN movie_genre mg USING (MovieID)
@@ -44,7 +57,19 @@ GROUP BY m.MovieID
 ## Shows
 
 ```
-SELECT s.*, r.Rating AS ContentRating, GROUP_CONCAT(g.Name SEPARATOR ', ') AS Genre
+SELECT ShowID,
+	s.Name,
+    ReleaseDate,
+    StreamDate,
+    Season,
+    Episodes,
+    Description,
+    s.Rating,
+    CoverImgUrl,
+    TrailerKey,
+    Platform,
+	r.Rating AS ContentRating, 
+	GROUP_CONCAT(g.Name SEPARATOR ', ') AS Genre
 FROM shows s
 	INNER JOIN ratings r USING (RatingID)
 	INNER JOIN show_genre mg USING (ShowID)
@@ -56,8 +81,19 @@ GROUP BY s.ShowID
 
 ### Database is not complete, currently only returns 1 row
 
+Explicit is ageRating in the form of a int-based boolean, 0 = false, 1 = true
+
 ```
-SELECT m.*, group_concat(g.Name SEPARATOR ', ') AS Genre
+SELECT AlbumID,
+	Album,
+    Artist,
+    ReleaseDate,
+    RecordLabel,
+    LengthMS,
+    Explicit,
+    Rating,
+    CoverImgUrl,
+	group_concat(g.Name SEPARATOR ', ') AS Genre
 FROM music m
 	INNER JOIN album_genre AS ag USING (AlbumID)
   INNER JOIN genres AS g USING (GenreID)
