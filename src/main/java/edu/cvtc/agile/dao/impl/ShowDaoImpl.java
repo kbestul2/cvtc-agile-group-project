@@ -14,10 +14,27 @@ import edu.cvtc.agile.util.DBUtility;
 
 public class ShowDaoImpl implements ShowDao {
 	
-	private static final String SELECT_ALL_FROM_SHOWS = "select * from shows";
+	private static final String SELECT_ALL_FROM_SHOWS 	= "SELECT ShowID, "
+															+ "s.Name, "
+															+ "ReleaseDate, "
+															+ "StreamDate, "
+															+ "Season, "
+															+ "Episodes, "
+															+ "Description, "
+															+ "s.Rating AS UserRating, "
+															+ "CoverImgUrl, "
+															+ "TrailerKey, "
+															+ "Platform, "
+															+ "r. Rating AS ContentRating, "
+															+ "GROUP_CONCAT(g.Name SEPARATOR ', ') AS Genre "
+														+ "FROM shows s "
+															+ "INNER JOIN ratings r USING (RatingID) "
+															+ "INNER JOIN show_genre sg USING (SHOWID) "
+															+ "INNER JOIN genres g USING (GenreID) "
+														+ "GROUP BY s.ShowID";
 
 	@Override
-	public List<Show> retrieveShows() throws ContentDaoException {
+	public List<Show> retrieveShows() throws ShowDaoException {
 		
 		final List<Show> shows = new ArrayList<>();
 		
@@ -34,26 +51,27 @@ public class ShowDaoImpl implements ShowDao {
 			final ResultSet resultSet =  statement.executeQuery(SELECT_ALL_FROM_SHOWS);
 			
 			while (resultSet.next()) {
-				
 				final String title = resultSet.getString("Name");
 				final Date releaseDate = resultSet.getDate("ReleaseDate");
 				final Date streamDate = resultSet.getDate("StreamDate");
-				final String contentRating = "TEMP";//resultSet.getString("ContentRating");
 				final int season = resultSet.getInt("Season");
 				final int episodes = resultSet.getInt("Episodes");
 				final String description = resultSet.getString("Description");
-				final float userRating = 0.0f;//resultSet.getFloat("UserRating");
+				final String genres = resultSet.getString("Genre");
+				final String contentRating = resultSet.getString("ContentRating");
+				final float userRating = resultSet.getFloat("UserRating");
 				final String coverImgUrl = resultSet.getString("CoverImgUrl");
-				final String trailerUrl = "https://www.youtube.com/watch?v=" + "TEMP";//resultSet.getString("TrailerKey");
-				final String platform = "TEMP";//resultSet.getString("Platform");
+				final String trailerUrl = "https://www.youtube.com/watch?v=" + resultSet.getString("TrailerKey");
+				final String platform = resultSet.getString("Platform");
 				
-				shows.add(new Show(title, releaseDate, streamDate, contentRating, season, episodes, description, userRating, coverImgUrl, trailerUrl, platform));
+				shows.add(new Show(title, releaseDate, streamDate, season, episodes, description, genres, 
+						contentRating, userRating, coverImgUrl, trailerUrl, platform));
 				
 			}
 			
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
-			throw new ContentDaoException("Error: Unable to retrieve shows from database.");
+			throw new ShowDaoException("Error: Unable to retrieve shows from database.");
 		} finally {
 			DBUtility.closeConnections(connection, statement);
 		}

@@ -14,10 +14,23 @@ import edu.cvtc.agile.util.DBUtility;
 
 public class MusicDaoImpl implements MusicDao {
 	
-	private static final String SELECT_ALL_FROM_MUSIC = "select * from music";
-
+	private static final String SELECT_ALL_FROM_MUSIC 	= "SELECT AlbumID, "
+															+ "Album, "
+															+ "Artist, "
+															+ "ReleaseDate, "
+															+ "RecordLabel, "
+															+ "LengthMS, "
+															+ "Explicit, "
+															+ "Rating, "
+															+ "CoverImgUrl, "
+															+ "GROUP_CONCAT(g.Name SEPARATOR ', ') AS Genre "
+														+ "FROM music m "
+															+ "INNER JOIN album_genre AS ag USING (AlbumID) "
+															+ "INNER JOIN genres AS g USING (GenreID)"
+														+ "GROUP BY m.AlbumID";
+	
 	@Override
-	public List<Music> retrieveMusic() throws ContentDaoException {
+	public List<Music> retrieveMusic() throws MusicDaoException {
 		
 		final List<Music> music = new ArrayList<>();
 		
@@ -35,23 +48,25 @@ public class MusicDaoImpl implements MusicDao {
 			
 			while (resultSet.next()) {
 				
-				final String name = resultSet.getString("Name");
-				final Date releaseDate = resultSet.getDate("ReleaseDate");
-				final Date streamDate = resultSet.getDate("StreamDate");
+				final String title = resultSet.getString("Album");
 				final String artist = resultSet.getString("Artist");
-				final String album = resultSet.getString("Album");
-				final int lengthInMinutes = resultSet.getInt("LengthInMinutes");
-				final int lengthInSeconds = resultSet.getInt("LengthInSeconds");
-				final float rating = resultSet.getFloat("Rating");
+				final Date releaseDate = resultSet.getDate("ReleaseDate");
+				final Date streamDate = resultSet.getDate("ReleaseDate");
+				final String genres = resultSet.getString("Genre");
+				final String contentWarning = (resultSet.getBoolean("Explicit") == true) ? "Explicit" : "None";
+				final float userRating = resultSet.getFloat("Rating");
+				final int lengthMS = resultSet.getInt("LengthMS");
+				final String recordLabel = resultSet.getString("RecordLabel");
 				final String coverImgUrl = resultSet.getString("CoverImgUrl");
 				
-				music.add(new Music(name, releaseDate, streamDate, artist, album, lengthInMinutes, lengthInSeconds, rating, coverImgUrl));
+				music.add(new Music(title, artist, releaseDate, streamDate, genres, 
+						contentWarning, userRating, lengthMS, recordLabel, coverImgUrl));
 				
 			}
 			
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
-			throw new ContentDaoException("Error: Unable to retrieve music from database.");
+			throw new MusicDaoException("Error: Unable to retrieve music from database.");
 		} finally {
 			DBUtility.closeConnections(connection, statement);
 		}

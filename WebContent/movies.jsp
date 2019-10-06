@@ -9,7 +9,7 @@
 	<body>
 		<div id="wrapper">
 		<div class = "searchDiv">
-				<form class = "search" action = "Search" method = "post">
+				<form class = "search" action = "MovieSearch" method = "post">
 					<label for= "movies"><strong>Search Movies:</strong></label>
 					<input name="movies">
 					<button type="submit"><i class="fa fa-search"></i></button>
@@ -29,10 +29,11 @@
 							<p>
 								Original Release: ${movie.releaseDate}<br>
 								Stream Release: ${movie.streamDate}<br>
-								Content Rating: ${movie.contentRating}<br>
-								Length: ${movie.length} minutes<br>
 								Description: ${movie.description}<br>
+								Genres: ${movie.genres}<br>
+								Content Rating: ${movie.contentRating}<br>
 								User Rating: ${movie.userRating}<br>
+								Length: ${movie.length} minutes<br>
 								coverImgUrl: ${movie.coverImgUrl}<br>
 								trailerUrl: ${movie.trailerUrl}<br>
 								platform: ${movie.platform}

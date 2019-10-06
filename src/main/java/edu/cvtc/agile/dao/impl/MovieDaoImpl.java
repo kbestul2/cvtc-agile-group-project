@@ -14,10 +14,28 @@ import edu.cvtc.agile.util.DBUtility;
 
 public class MovieDaoImpl implements MovieDao {
 	
-	private static final String SELECT_ALL_FROM_MOVIES = "SELECT Title, ReleaseDate, StreamDate, ratings.Rating AS ContentRating, Length, Description, UserRating, CoverImgUrl, TrailerKey, Platform FROM StreamLINE.movies INNER JOIN ratings USING (RatingID)";
-
+	private static final String SELECT_ALL_FROM_MOVIES 	= "SELECT MovieID, "
+															+ "Title, "
+															+ "ReleaseDate, "
+															+ "StreamDate, "
+															+ "Length, "
+															+ "Description, "
+															+ "UserRating, "
+															+ "CoverImgUrl, "
+															+ "TrailerKey, "
+															+ "Platform, "
+															+ "r.Rating AS ContentRating, "
+															+ "GROUP_CONCAT(g.Name SEPARATOR ', ') AS Genre "
+														+ "FROM movies m "
+															+ "INNER JOIN ratings r USING (RatingID) "
+															+ "INNER JOIN movie_genre mg USING (MovieID) "
+															+ "INNER JOIN genres g USING (GenreID) "
+														+ "GROUP BY m.MovieID";
+	
+	private static final String[] INSERT_SIZE = {"w92", "w154", "w185", "w342", "w500", "w780", "original"};
+			
 	@Override
-	public List<Movie> retrieveMovies() throws ContentDaoException {
+	public List<Movie> retrieveMovies() throws MovieDaoException {
 		
 		final List<Movie> movies = new ArrayList<>();
 		
@@ -38,23 +56,23 @@ public class MovieDaoImpl implements MovieDao {
 				final String title = resultSet.getString("Title");
 				final Date releaseDate = resultSet.getDate("ReleaseDate");
 				final Date streamDate = resultSet.getDate("StreamDate");
-				final String contentRating = resultSet.getString("ContentRating");
-				final int length = resultSet.getInt("Length");
 				final String description = resultSet.getString("Description");
+				final String genres = resultSet.getString("Genre");
+				final String contentRating = resultSet.getString("ContentRating");
 				final float userRating = resultSet.getFloat("UserRating");
-				final String coverImgUrl = resultSet.getString("CoverImgUrl");
+				final int length = resultSet.getInt("Length");
+				final String coverImgUrl = "https://image.tmdb.org/t/p/" + INSERT_SIZE[4] + resultSet.getString("CoverImgUrl");
 				final String trailerUrl = "https://www.youtube.com/watch?v=" + resultSet.getString("TrailerKey");
 				final String platform = resultSet.getString("Platform");
 				
-				if (title != null) {
-					movies.add(new Movie(title, releaseDate, streamDate, contentRating, length, description, userRating, coverImgUrl, trailerUrl, platform));
-				}
+				movies.add(new Movie(title, releaseDate, streamDate, description, genres, 
+						contentRating, userRating, length, coverImgUrl, trailerUrl, platform));
 				
 			}
 			
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
-			throw new ContentDaoException("Error: Unable to retrieve movies from database.");
+			throw new MovieDaoException("Error: Unable to retrieve movies from database.");
 		} finally {
 			DBUtility.closeConnections(connection, statement);
 		}

@@ -10,9 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.cvtc.agile.comparators.ContentTitleComparator;
+import edu.cvtc.agile.comparators.MovieLengthComparator;
+import edu.cvtc.agile.comparators.ReleaseDateComparator;
+import edu.cvtc.agile.comparators.StreamDateComparator;
+import edu.cvtc.agile.comparators.TitleComparator;
+import edu.cvtc.agile.comparators.UserRatingComparator;
 import edu.cvtc.agile.dao.MusicDao;
-import edu.cvtc.agile.dao.impl.ContentDaoException;
+import edu.cvtc.agile.dao.impl.MusicDaoException;
 import edu.cvtc.agile.dao.impl.MusicDaoImpl;
 import edu.cvtc.agile.model.Music;
 
@@ -36,17 +40,17 @@ public class MusicController extends HttpServlet {
 			final MusicDao musicDao = new MusicDaoImpl();
 			final List<Music> music = musicDao.retrieveMusic();
 			
-//			final String sortType = request.getParameter("sortType");
-//			
-//			if (sortType != null) {
-//				sortMusic(music, sortType);
-//			}
+			final String sortType = request.getParameter("sortType");
+			
+			if (sortType != null) {
+				sortMusic(music, sortType);
+			}
 			
 			request.setAttribute("music", music);
 			
 			target = "music.jsp";
 			
-		} catch (ContentDaoException e) {
+		} catch (MusicDaoException e) {
 			e.printStackTrace();
 			request.setAttribute("message", e.getMessage());
 			target = "error.jsp";
@@ -55,15 +59,25 @@ public class MusicController extends HttpServlet {
 		request.getRequestDispatcher(target).forward(request, response);
 	}
 
-//	private void sortMusic(final List<Music> music, final String sortType) {
-//		switch(sortType) {
-//		case "name":
-//			Collections.sort(music, new NameComparator());
-//			break;
-//		default:
-//			break;
-//		}
-//	}
+	private void sortMusic(final List<Music> music, final String sortType) {
+		
+		switch(sortType) {
+		case "streamDate":
+			Collections.sort(music, new StreamDateComparator());
+			break;
+		case "releaseDate":
+			Collections.sort(music, new ReleaseDateComparator());
+			break;
+		case "userRating":
+			Collections.sort(music, new UserRatingComparator());
+			Collections.reverse(music); // Sort from best to worst
+			break;
+		case "title":
+			Collections.sort(music, new TitleComparator());
+			break;
+		}
+		
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

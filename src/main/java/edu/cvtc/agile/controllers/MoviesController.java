@@ -10,10 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.cvtc.agile.comparators.ContentTitleComparator;
-import edu.cvtc.agile.comparators.ContentStreamReleaseComparator;
+import edu.cvtc.agile.comparators.TitleComparator;
+import edu.cvtc.agile.comparators.UserRatingComparator;
+import edu.cvtc.agile.comparators.MovieLengthComparator;
+import edu.cvtc.agile.comparators.ReleaseDateComparator;
+import edu.cvtc.agile.comparators.StreamDateComparator;
 import edu.cvtc.agile.dao.MovieDao;
-import edu.cvtc.agile.dao.impl.ContentDaoException;
+import edu.cvtc.agile.dao.impl.MovieDaoException;
 import edu.cvtc.agile.dao.impl.MovieDaoImpl;
 import edu.cvtc.agile.model.Movie;
 
@@ -46,7 +49,7 @@ public class MoviesController extends HttpServlet {
 			
 			target = "movies.jsp";
 			
-		} catch (ContentDaoException e) {
+		} catch (MovieDaoException e) {
 			e.printStackTrace();
 			request.setAttribute("message", e.getMessage());
 			target = "error.jsp";
@@ -54,18 +57,28 @@ public class MoviesController extends HttpServlet {
 		
 		request.getRequestDispatcher(target).forward(request, response);
 	}
-
+	
 	private void sortMovies(final List<Movie> movies, final String sortType) {
+		
 		switch(sortType) {
+		case "streamDate":
+			Collections.sort(movies, new StreamDateComparator());
+			break;
+		case "releaseDate":
+			Collections.sort(movies, new ReleaseDateComparator());
+			break;
+		case "userRating":
+			Collections.sort(movies, new UserRatingComparator());
+			Collections.reverse(movies); // Sort from best to worst
+			break;
+		case "length":
+			Collections.sort(movies, new MovieLengthComparator());
+			break;
 		case "title":
-			Collections.sort(movies, new ContentTitleComparator());
-			break;
-		case "streamRelease":
-			Collections.sort(movies, new ContentStreamReleaseComparator());
-			break;
-		default:
+			Collections.sort(movies, new TitleComparator());
 			break;
 		}
+		
 	}
 
 	/**

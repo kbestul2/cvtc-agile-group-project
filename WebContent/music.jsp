@@ -9,7 +9,7 @@
 	<body>
 		<div id="wrapper">
 		<div class = "searchDiv">
-				<form class= "search"action = "Search" method = "post">
+				<form class= "search"action = "MusicSearch" method = "post">
 					<label for= "music"><strong>Search Music:</strong></label>
 					<input name="music">
 					<button type="submit"><i class="fa fa-search"></i></button>
@@ -25,13 +25,15 @@
 					</c:when>
 					<c:otherwise>
 						<c:forEach var="music" items="${music}">
-							<h2>${music.name}</h2>
+							<h2>${music.title}</h2>
 							<p>
-								Original Release: ${music.releaseDate}<br>
-								Stream Release: ${music.streamDate}<br>
 								Artist: ${music.artist}<br>
-								Length: ${music.lengthInMinutes} minutes (${music.lengthInSeconds} seconds)<br>
-								Rating: ${music.rating}<br>
+								Release: ${music.releaseDate}<br>
+								Genres: ${music.genres}<br>
+								Content Warning: ${music.contentWarning}<br>
+								User Rating: ${music.userRating}<br>
+								Length: ${music.lengthMS}<br>
+								Record Label: ${music.recordLabel}<br>
 								coverImgUrl: ${music.coverImgUrl}<br>
 							</p>
 						</c:forEach>

@@ -9,7 +9,7 @@
 	<body>
 		<div id="wrapper">
 		<div class = "searchDiv">
-				<form class = "search" action = "Search" method = "post">
+				<form class = "search" action = "ShowSearch" method = "post">
 					<label for= "shows"><strong>Search Shows:</strong></label>
 					<input name="shows">
 					<button type="submit"><i class="fa fa-search"></i></button>

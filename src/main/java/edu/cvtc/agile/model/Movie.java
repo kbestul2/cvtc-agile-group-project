@@ -10,23 +10,27 @@ public class Movie extends Content implements Serializable {
 	private String title;
 	private Date releaseDate;
 	private Date streamDate;
-	private String contentRating;
-	private int length;
 	private String description;
+	private String genres;
+	private String contentRating;
 	private float userRating;
+	private int length;
 	private String coverImgUrl;
 	private String trailerUrl;
 	private String platform;
 	
-	public Movie(String title, Date releaseDate, Date streamDate, String contentRating, int length,
-			String description, float userRating, String coverImgUrl, String trailerUrl, String platform) {
+	public Movie(String title, Date releaseDate, Date streamDate, String description, String genres,
+			String contentRating, float userRating, int length, String coverImgUrl, String trailerUrl,
+			String platform) {
+		super();
 		this.title = title;
 		this.releaseDate = releaseDate;
 		this.streamDate = streamDate;
-		this.contentRating = contentRating;
-		this.length = length;
 		this.description = description;
+		this.genres = genres;
+		this.contentRating = contentRating;
 		this.userRating = userRating;
+		this.length = length;
 		this.coverImgUrl = coverImgUrl;
 		this.trailerUrl = trailerUrl;
 		this.platform = platform;
@@ -56,22 +60,6 @@ public class Movie extends Content implements Serializable {
 		this.streamDate = streamDate;
 	}
 
-	public String getContentRating() {
-		return contentRating;
-	}
-
-	public void setContentRating(String contentRating) {
-		this.contentRating = contentRating;
-	}
-
-	public int getLength() {
-		return length;
-	}
-
-	public void setLength(int length) {
-		this.length = length;
-	}
-
 	public String getDescription() {
 		return description;
 	}
@@ -80,12 +68,36 @@ public class Movie extends Content implements Serializable {
 		this.description = description;
 	}
 
+	public String getGenres() {
+		return genres;
+	}
+
+	public void setGenres(String genres) {
+		this.genres = genres;
+	}
+
+	public String getContentRating() {
+		return contentRating;
+	}
+
+	public void setContentRating(String contentRating) {
+		this.contentRating = contentRating;
+	}
+
 	public float getUserRating() {
 		return userRating;
 	}
 
 	public void setUserRating(float userRating) {
 		this.userRating = userRating;
+	}
+
+	public int getLength() {
+		return length;
+	}
+
+	public void setLength(int length) {
+		this.length = length;
 	}
 
 	public String getCoverImgUrl() {
@@ -115,9 +127,9 @@ public class Movie extends Content implements Serializable {
 	@Override
 	public String toString() {
 		return "Movie [title=" + title + ", releaseDate=" + releaseDate + ", streamDate=" + streamDate
-				+ ", contentRating=" + contentRating + ", length=" + length + ", description=" + description
-				+ ", userRating=" + userRating + ", coverImgUrl=" + coverImgUrl + ", trailerUrl=" + trailerUrl
-				+ ", platform=" + platform + "]";
+				+ ", description=" + description + ", genres=" + genres + ", contentRating=" + contentRating
+				+ ", userRating=" + userRating + ", length=" + length + ", coverImgUrl=" + coverImgUrl + ", trailerUrl="
+				+ trailerUrl + ", platform=" + platform + "]";
 	}
 	
 }

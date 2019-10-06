@@ -8,26 +8,28 @@ public class Music extends Content implements Serializable {
 	private static final long serialVersionUID = 3605785336363110316L;
 
 	private String title;
+	private String artist;
 	private Date releaseDate;
 	private Date streamDate;
-	private String artist;
-	private String album;
-	private int lengthInMinutes;
-	private int lengthInSeconds;
-	private float rating;
+	private String genres;
+	private String contentWarning;
+	private float userRating;
+	private int lengthMS;
+	private String recordLabel;
 	private String coverImgUrl;
-
-	public Music(String title, Date releaseDate, Date streamDate, String artist, String album, int lengthInMinutes,
-			int lengthInSeconds, float ratingNumber, String coverImgUrl) {
+	
+	public Music(String title, String artist, Date releaseDate, Date streamDate, String genres, String contentWarning,
+			float userRating, int lengthMS, String recordLabel, String coverImgUrl) {
 		super();
 		this.title = title;
+		this.artist = artist;
 		this.releaseDate = releaseDate;
 		this.streamDate = streamDate;
-		this.artist = artist;
-		this.album = album;
-		this.lengthInMinutes = lengthInMinutes;
-		this.lengthInSeconds = lengthInSeconds;
-		this.rating = ratingNumber;
+		this.genres = genres;
+		this.contentWarning = contentWarning;
+		this.userRating = userRating;
+		this.lengthMS = lengthMS;
+		this.recordLabel = recordLabel;
 		this.coverImgUrl = coverImgUrl;
 	}
 
@@ -37,6 +39,14 @@ public class Music extends Content implements Serializable {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getArtist() {
+		return artist;
+	}
+
+	public void setArtist(String artist) {
+		this.artist = artist;
 	}
 
 	public Date getReleaseDate() {
@@ -55,44 +65,44 @@ public class Music extends Content implements Serializable {
 		this.streamDate = streamDate;
 	}
 
-	public String getArtist() {
-		return artist;
+	public String getGenres() {
+		return genres;
 	}
 
-	public void setArtist(String artist) {
-		this.artist = artist;
+	public void setGenres(String genres) {
+		this.genres = genres;
 	}
 
-	public String getAlbum() {
-		return album;
+	public String getContentWarning() {
+		return contentWarning;
 	}
 
-	public void setAlbum(String album) {
-		this.album = album;
+	public void setContentWarning(String contentWarning) {
+		this.contentWarning = contentWarning;
 	}
 
-	public int getLengthInMinutes() {
-		return lengthInMinutes;
+	public float getUserRating() {
+		return userRating;
 	}
 
-	public void setLengthInMinutes(int lengthInMinutes) {
-		this.lengthInMinutes = lengthInMinutes;
+	public void setUserRating(float userRating) {
+		this.userRating = userRating;
 	}
 
-	public int getLengthInSeconds() {
-		return lengthInSeconds;
+	public int getLengthMS() {
+		return lengthMS;
 	}
 
-	public void setLengthInSeconds(int lengthInSeconds) {
-		this.lengthInSeconds = lengthInSeconds;
+	public void setLengthMS(int lengthMS) {
+		this.lengthMS = lengthMS;
 	}
 
-	public float getRatingNumber() {
-		return rating;
+	public String getRecordLabel() {
+		return recordLabel;
 	}
 
-	public void setRatingNumber(float ratingNumber) {
-		this.rating = ratingNumber;
+	public void setRecordLabel(String recordLabel) {
+		this.recordLabel = recordLabel;
 	}
 
 	public String getCoverImgUrl() {
@@ -105,9 +115,9 @@ public class Music extends Content implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Music [title=" + title + ", releaseDate=" + releaseDate + ", streamDate=" + streamDate + ", artist="
-				+ artist + ", album=" + album + ", lengthInMinutes=" + lengthInMinutes + ", lengthInSeconds="
-				+ lengthInSeconds + ", ratingNumber=" + rating + ", coverImgUrl=" + coverImgUrl + "]";
+		return "Music [title=" + title + ", artist=" + artist + ", releaseDate=" + releaseDate + ", streamDate="
+				+ streamDate + ", genres=" + genres + ", contentWarning=" + contentWarning + ", userRating=" + userRating
+				+ ", lengthMS=" + lengthMS + ", recordLabel=" + recordLabel + ", coverImgUrl=" + coverImgUrl + "]";
 	}
-
+	
 }
