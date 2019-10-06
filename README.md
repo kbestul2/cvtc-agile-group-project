@@ -28,9 +28,9 @@ To fix servlet-api.jar errors:
 *Note: You may need to do something similar for the Maven Dependencies and the JRE System Library (jdk1.8.0_221)  
 
 
-#Database Queries
+# Database Queries
 
-##Movies
+## Movies
 
 ```
 SELECT m.*, r.Rating AS ContentRating, GROUP_CONCAT(g.Name SEPARATOR ', ') AS Genre
@@ -41,7 +41,7 @@ FROM movies m
 GROUP BY m.MovieID
 ```
 
-##Shows
+## Shows
 
 ```
 SELECT s.*, r.Rating AS ContentRating, GROUP_CONCAT(g.Name SEPARATOR ', ') AS Genre
@@ -52,9 +52,9 @@ FROM shows s
 GROUP BY s.ShowID
 ```
 
-##Music
+## Music
 
-###Database is not complete, currently only returns 1 row
+### Database is not complete, currently only returns 1 row
 
 ```
 SELECT m.*, group_concat(g.Name SEPARATOR ', ') AS Genre
