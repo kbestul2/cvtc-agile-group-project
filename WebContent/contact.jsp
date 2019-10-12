@@ -4,7 +4,6 @@
 		<meta charset ="utf-8">
 		<title>streamLine Contact</title>
 		<%@ include file="assets/includes/styles.jsp" %>
-		<link href='assets/css/contactForm.css' rel='stylesheet'>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -18,7 +17,7 @@
 						streamLineGroup@cvtc.edu
 					</p>
 					<br>
-					<form>      
+					<form id="contactForm">      
 						<input name="name" type="text" class="feedbackText" placeholder="Name" />   
 						<input name="email" type="text" class="feedbackText" placeholder="Email" />
 						<textarea name="text" class="feedbackText" placeholder="Comment"></textarea>
@@ -29,7 +28,4 @@
 			<%@ include file="assets/includes/footer.jsp" %>
 		</div>
 	</body>
-	<link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
-	<link href='https://fonts.googleapis.com/css?family=Jura' rel='stylesheet'>
-	<link href='https://fonts.googleapis.com/css?family=Maven Pro' rel='stylesheet'>
 </html>

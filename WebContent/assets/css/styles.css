@@ -1,8 +1,8 @@
 body {
 	background-color: rgb(190, 190, 190);
 	background-image: url(../images/whiteAngles.jpg);
-	background-repeat: repeat-y;
-	font-family: sans-serif;
+	/*background-size: cover;*/
+	font-family: Maven Pro;
 	color: #fff;
 }
 
@@ -11,45 +11,7 @@ body {
 	border-radius: 5px;
 }
 
-h1 {
-	font-family: Audiowide;
-	padding-bottom: 0;
-	font-size: 3.5em;
-	margin-bottom: 0;
-}
-
-#accent {
-	color: #018aff;
-}
-
-.searchDiv { 
-	float: right;
-}
-
-form.search label {
-	/* color? */
-}
-
-form.search button {
-	height: 2em;
-	color: #fff;
-	background-color: rgba(78, 78, 78, 0.60);
-	border: none;
-	border-radius: 50%;
-}
-
-form.search button:hover {
-	color: #000;
-	background-color: #018aff;
-}
-
-form.search input {
-	border: none;
-	width: 15em;
-	height: 1.5em;
-	background-color: rgba(255, 255, 255, 0.8);
-}
-
+/*Navigation Styling */
 .mainNav {
 	background-color: rgba(78, 78, 78, 0.60);
 	font-family: Jura;
@@ -103,7 +65,7 @@ form.search input {
 .mainNav ul ul li {
 	/*min-width: 5rem;*/
     display: list-item;
-    background-color: rgba(78, 78, 78, 0.60);
+    background-color: rgba(78, 78, 78, 0.90);
 }
 
 /* Second, third and more tiers */
@@ -123,15 +85,210 @@ form.search input {
 .mainNav li > a:only-child:after {
 	content: '';
 }
+/*End Navigation Styling */
 
+h1 {
+	font-family: Audiowide;
+	padding-bottom: 0;
+	font-size: 3.5em;
+	margin-bottom: 0;
+}
+
+#accent {
+	color: #018aff;
+}
+
+.searchDiv { 
+	float: right;
+}
+
+/*Search Bar Styling */
+form.search button {
+	height: 2em;
+	color: #fff;
+	background-color: rgba(78, 78, 78, 0.90);
+	border: none;
+	border-radius: 50%;
+}
+
+form.search button:hover {
+	color: #000;
+	background-color: #018aff;
+}
+
+form.search input {
+	border: none;
+	width: 15em;
+	height: 1.5em;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+/*End Search Bar Styling */
+
+
+/*Contact Form Styling */
 #mainContent {
 	min-height: 80em;
 }
+
+#contactContent{
+	height: 30em;
+	width: 80%;
+	font-family: sans-serif;
+	margin: auto;
+	margin-top: 10em;
+	background-color: rgba(78, 78, 78, 0.60); 
+}
+
+#contactContent > p{
+	font-family: Maven Pro;
+	font-size: 2.5em;
+	text-align: center;
+	float: left;
+	padding-top: 2.75em;
+	padding-left: 1em; 
+}
+
+#contactForm {
+	position: relative; 
+	max-width: 500px;
+	margin-left: 50%;
+	height 20em;
+	padding-top: 4em;
+}
+
+.feedbackText {
+	font-family: Jura;
+	font-weight:500;
+	font-size: 1.5em;
+	border-radius: 5px;
+	line-height: 20px;
+	background-color: rgba(1, 138, 255, 0.6);
+	color: #fff;
+	border:2px solid #fff;
+	padding: 20px;
+	margin-bottom: 15px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.feedbackText:focus {
+	border:2px solid #fff; 
+}
+
+textarea {
+	height: 100px;
+	line-height: 150%;
+	resize: vertical;
+}
+
+#submit {
+	width: 150px;
+	height: 50px;
+	margin: 0 auto;
+	background-color: #f4f6f9;
+	border-radius: 16px;
+	outline: 0;
+}
+
+#submit:hover {
+	background-color: rgba(1, 138, 255, 0.6);
+	color: #f4f6f9;
+}
+/* End Contact Form Styling */
+
+#featHead{
+	font-family: Audiowide;
+	color: rgba(78, 78, 78, 0.60);
+	font-size: 2em;
+	margin-bottom: -1em;
+	text-align: center;
+	padding-bottom:0;
+	
+}
+
+h3{
+	font-size: 8em;
+	padding-top: 0;
+	margin-top: 0;
+	margin-bottom: .25em;
+	text-align: center;
+	
+}
+
+#year{
+ 	writing-mode: vertical-rl;
+	color: #018aff;
+	font-size: .22em;
+	letter-spacing: 1px;
+}
+
+#featureMainContent {
+	min-height: 20em;
+	margin: auto;
+	width: 60%;
+}
+
+
+/*Rotator Styling*/
+#featureRotator {
+  margin: auto;
+  padding: 0;
+  width: 100%;
+  margin-bottom: .2em;
+}
+
+.featureContent {
+  position: absolute;
+  top: 0;
+  min-height: 10em;
+  border-top: 1px solid #f4f4f4;
+  border-bottom: 1px solid #f4f4f4;
+  padding: 1em 0;
+  z-index: -1;
+  opacity: 0;
+}
+
+.featureContent.featureCurrent,
+.no-js .featureRotator .featureContent {
+  position: relative;
+  z-index: 100;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.featureContent  img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: 20em;
+}
+/*End Rotator Styling*/
+
 
 footer {
 	text-align: center;
 	color: #018aff;
 }
+
+/* Platforms Styling */
+#platforms {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2em;
+	display: flex;
+	justify-content:space-evenly;
+}
+
+#platforms > a img {
+	width: 13em;
+	height: 6em;
+	padding-left: 1%;
+	Padding-right: 1%;
+}
+/* End Platforms Styling */
+
+
+/*Responsive Styling*/
 
 @media only screen and (max-width: 54rem) {
 	
@@ -147,3 +304,14 @@ footer {
 	}
 	
 }
+
+@media screen and(max-width: 28.75em) {
+  .featureRotator {
+    font-size: 70%;
+  }
+  
+  .featureContent img {
+    width: 5em;
+  }
+}
+/*End Responsive Styling*/
