@@ -5,6 +5,7 @@
 		<meta charset ="utf-8">
 		<title>streamLine Music</title>
 		<%@ include file="assets/includes/styles.jsp" %>
+		<link href='assets/css/content.css' rel='stylesheet'>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -25,21 +26,21 @@
 					</c:when>
 					<c:otherwise>
 						<c:forEach var="music" items="${music}">
+							<div class="content">
 							<h2>${music.title}</h2>
-							<p>
-								Artist: ${music.artist}<br>
-								Release: ${music.releaseDate}<br>
-								Genres: ${music.genres}<br>
-								Content Warning: ${music.contentWarning}<br>
-								
-								<c:if test="${movie.userRating ne -1}">
-									User Rating: ${movie.userRating}<br>
+							<img src="${music.coverImgUrl}" class="contentImage">
+							<ul class="contentList">
+								<li><span>Artist:</span> ${music.artist}</li>
+								<li><span>Release:</span> ${music.releaseDate}</li>
+								<li><span>Genres:</span> ${music.genres}</li>
+								<li><span>Content Warning:</span> ${music.contentWarning}</li>
+								<c:if test="${music.userRating ne -1}">
+									<li><span>User Rating:</span> ${music.userRating}</li>
 								</c:if>
-								
-								Length: ${music.lengthMS}<br>
-								Record Label: ${music.recordLabel}<br>
-								coverImgUrl: ${music.coverImgUrl}<br>
-							</p>
+								<li><span>Length:</span> ${music.lengthMS}</li>
+								<li><span>Record Label:</span> ${music.recordLabel}</li>
+							</ul>
+						</div>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>

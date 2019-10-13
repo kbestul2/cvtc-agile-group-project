@@ -5,6 +5,7 @@
 		<meta charset ="utf-8">
 		<title>streamLine TV</title>
 		<%@ include file="assets/includes/styles.jsp" %>
+		<link href='assets/css/content.css' rel='stylesheet'>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -25,28 +26,26 @@
 					</c:when>
 					<c:otherwise>
 						<c:forEach var="show" items="${shows}">
+							<div class="content">
 							<h2>${show.title}</h2>
-							<p>
-								Original Release: ${show.releaseDate}<br>
-								Stream Release: ${show.streamDate}<br>
-								Content Rating: ${show.contentRating}<br>
-								Season: ${show.season}<br>
-								
+							<a href="${show.trailerUrl}"><img src="${show.coverImgUrl}" class="contentImage"></a>
+							<ul class="contentList">
+								<li><span>Original Release:</span> ${show.releaseDate}</li>
+								<li><span>Stream Release:</span> ${show.streamDate}</li>
+								<li><span>Content Rating:</span> ${show.contentRating}</li>
+								<c:if test="${show.season ne -1}">
+									<li><span>Season:</span> ${show.season}</li>
+								</c:if>
 								<c:if test="${show.episodes ne -1}">
-									Episodes: ${show.episodes}<br>
+									<li><span>Episodes:</span> ${show.episodes}</li>
 								</c:if>
-								
-								Description: ${show.description}<br>
-								
-								<c:if test="${movie.userRating ne -1}">
-									User Rating: ${movie.userRating}<br>
+								<li class="description"><span>Description:</span> ${show.description}</li>
+								<c:if test="${show.userRating ne -1}">
+									<li><span>User Rating:</span> ${show.userRating}</li>
 								</c:if>
-								
-								coverImgUrl: ${show.coverImgUrl}<br>
-								trailerUrl: ${show.trailerUrl}<br>
-								platform: ${show.platform}
-							</p>
-						
+								<li><span>platform:</span> ${show.platform}</li>
+							</ul>
+							</div>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>

@@ -1,0 +1,73 @@
+.contentImage {
+	height: 20rem;
+	object-fit: contain;
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+ }
+
+.content {
+	width: 20%;
+	float: left;
+	padding 2rem;
+	position: relative;
+	padding: 15px;
+	background-color: rgba(78, 78, 78, 0.60);
+	margin: 15px;
+	transition: width 1s;
+}
+
+.content h2 {
+	text-align: center;
+	margin-bottom: 30px;
+	height: 30px;
+}
+
+.contentList {
+	position: absolute;
+	top: 0;
+	left: 0;
+	list-style-type: none;
+	height: 32rem;
+	width: 20rem;
+	display: none
+}
+
+.content:hover .contentList { 
+	display: block; 
+}
+
+.content:hover { 
+	width: 44.25%;
+}
+
+.content:hover .contentImage { 
+	height: 20rem;
+	object-fit: contain;
+	display: block;
+	margin-left: 0;
+  	margin-right: 0;
+}
+
+.content:hover .contentList {
+	float: right;
+  	left: 200px;
+  	top: 75px;
+  	justify-content: space-evenly;
+}
+
+.content:hover .contentList li { 
+	margin: 12px 0;
+}
+
+.content:hover .contentList li span { 
+	font-weight: bold;
+}
+
+.content:hover .description { 
+	text-overflow: ellipsis;
+  	width: 300px;
+  	overflow: hidden;
+  	display: block;
+  	max-height: 75px;
+}

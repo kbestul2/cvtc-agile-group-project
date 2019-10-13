@@ -63,7 +63,7 @@ public class MovieDaoImpl implements MovieDao {
 				final int length = resultSet.getInt("Length");
 				
 				String coverImgUrlString;
-				if (resultSet.getString("CoverImgUrl").equals("-1")) {
+				if (resultSet.getString("CoverImgUrl").equals("-1") || resultSet.getString("CoverImgUrl").isEmpty()) {
 					coverImgUrlString = "assets/images/ImageUnavailable.png";
 				} else {
 					coverImgUrlString = "https://image.tmdb.org/t/p/" + INSERT_SIZE[4] + resultSet.getString("CoverImgUrl");

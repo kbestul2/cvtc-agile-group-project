@@ -29,8 +29,6 @@ public class MusicDaoImpl implements MusicDao {
 															+ "INNER JOIN genres AS g USING (GenreID)"
 														+ "GROUP BY m.AlbumID";
 	
-	private static final String[] INSERT_SIZE = {"w92", "w154", "w185", "w342", "w500", "w780", "original"};
-	
 	@Override
 	public List<Music> retrieveMusic() throws MusicDaoException {
 		
@@ -60,11 +58,13 @@ public class MusicDaoImpl implements MusicDao {
 				final int lengthMS = resultSet.getInt("LengthMS");
 				final String recordLabel = resultSet.getString("RecordLabel");
 				
+				System.out.println("TEST: " + resultSet.getString("CoverImgUrl"));
+				
 				String coverImgUrlString;
-				if (resultSet.getString("CoverImgUrl").equals("-1")) {
+				if (resultSet.getString("CoverImgUrl").equals("-1") || resultSet.getString("CoverImgUrl").isEmpty()) {
 					coverImgUrlString = "assets/images/ImageUnavailable.png";
 				} else {
-					coverImgUrlString = "https://image.tmdb.org/t/p/" + INSERT_SIZE[4] + resultSet.getString("CoverImgUrl");
+					coverImgUrlString = resultSet.getString("CoverImgUrl");
 				}
 				final String coverImgUrl = coverImgUrlString;
 				
