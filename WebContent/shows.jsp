@@ -38,6 +38,7 @@
 								trailerUrl: ${show.trailerUrl}<br>
 								platform: ${show.platform}
 							</p>
+							<img src="${show.coverImgUrl}">
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>

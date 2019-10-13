@@ -32,6 +32,8 @@ public class ShowDaoImpl implements ShowDao {
 															+ "INNER JOIN show_genre sg USING (SHOWID) "
 															+ "INNER JOIN genres g USING (GenreID) "
 														+ "GROUP BY s.ShowID";
+	
+	private static final String[] INSERT_SIZE = {"w92", "w154", "w185", "w342", "w500", "w780", "original"};
 
 	@Override
 	public List<Show> retrieveShows() throws ShowDaoException {
@@ -60,7 +62,7 @@ public class ShowDaoImpl implements ShowDao {
 				final String genres = resultSet.getString("Genre");
 				final String contentRating = resultSet.getString("ContentRating");
 				final float userRating = resultSet.getFloat("UserRating");
-				final String coverImgUrl = resultSet.getString("CoverImgUrl");
+				final String coverImgUrl = "https://image.tmdb.org/t/p/" + INSERT_SIZE[4] + resultSet.getString("CoverImgUrl");
 				final String trailerUrl = "https://www.youtube.com/watch?v=" + resultSet.getString("TrailerKey");
 				final String platform = resultSet.getString("Platform");
 				
