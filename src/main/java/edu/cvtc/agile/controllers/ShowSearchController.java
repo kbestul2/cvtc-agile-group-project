@@ -37,15 +37,29 @@ public class ShowSearchController extends HttpServlet {
 			final List<Show> shows = showDao.retrieveShows();
 			
 			List<Show> filteredShows = null;
+			List<Show> filteredShowsTitles = null;
+			List<Show> filteredShowsGenres = null;
 			
 			final String search = request.getParameter("shows");
 			
 			if (search != null) {
 				
-				filteredShows = shows
+				filteredShowsTitles = shows
 									   .stream()
-									   .filter((show) -> show.getTitle().toLowerCase().contains(search.toLowerCase()))
+									   .filter((show) -> show.getTitle().toLowerCase().contains(search.toLowerCase().trim()))
 									   .collect(Collectors.toList());
+				
+				filteredShowsGenres = shows
+									   .stream()
+									   .filter((show) -> show.getGenres().toLowerCase().contains(search.toLowerCase().trim()))
+									   .collect(Collectors.toList());
+				
+				filteredShowsTitles.addAll(filteredShowsGenres);
+				
+				filteredShows = filteredShowsTitles
+									.stream()
+									.distinct()
+									.collect(Collectors.toList());
 				
 				Collections.sort(filteredShows, new TitleComparator());
 				

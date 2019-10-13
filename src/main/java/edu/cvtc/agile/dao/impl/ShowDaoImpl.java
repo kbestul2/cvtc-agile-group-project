@@ -62,8 +62,23 @@ public class ShowDaoImpl implements ShowDao {
 				final String genres = resultSet.getString("Genre");
 				final String contentRating = resultSet.getString("ContentRating");
 				final float userRating = resultSet.getFloat("UserRating");
-				final String coverImgUrl = "https://image.tmdb.org/t/p/" + INSERT_SIZE[4] + resultSet.getString("CoverImgUrl");
-				final String trailerUrl = "https://www.youtube.com/watch?v=" + resultSet.getString("TrailerKey");
+				
+				String coverImgUrlString;
+				if (resultSet.getString("CoverImgUrl").equals("-1")) {
+					coverImgUrlString = "assets/images/ImageUnavailable.png";
+				} else {
+					coverImgUrlString = "https://image.tmdb.org/t/p/" + INSERT_SIZE[4] + resultSet.getString("CoverImgUrl");
+				}
+				final String coverImgUrl = coverImgUrlString;
+				
+				String trailerUrlString;
+				if (resultSet.getString("TrailerKey").equals("-1")) {
+					trailerUrlString = "error404.jsp";
+				} else {
+					trailerUrlString = "https://www.youtube.com/watch?v=" + resultSet.getString("TrailerKey");
+				}
+				final String trailerUrl = trailerUrlString;
+				
 				final String platform = resultSet.getString("Platform");
 				
 				shows.add(new Show(title, releaseDate, streamDate, season, episodes, description, genres, 

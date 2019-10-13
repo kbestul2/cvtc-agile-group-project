@@ -37,15 +37,29 @@ public class MusicSearchController extends HttpServlet {
 			final List<Music> music = musicDao.retrieveMusic();
 			
 			List<Music> filteredMusic = null;
+			List<Music> filteredMusicTitles = null;
+			List<Music> filteredMusicGenres = null;
 			
 			final String search = request.getParameter("music");
 			
 			if (search != null) {
 				
-				filteredMusic = music
+				filteredMusicTitles = music
 									   .stream()
-									   .filter((album) -> album.getTitle().toLowerCase().contains(search.toLowerCase()))
+									   .filter((album) -> album.getTitle().toLowerCase().contains(search.toLowerCase().trim()))
 									   .collect(Collectors.toList());
+				
+				filteredMusicGenres = music
+									   .stream()
+									   .filter((album) -> album.getGenres().toLowerCase().contains(search.toLowerCase().trim()))
+									   .collect(Collectors.toList());
+				
+				filteredMusicTitles.addAll(filteredMusicGenres);
+				
+				filteredMusic = filteredMusicTitles
+									.stream()
+									.distinct()
+									.collect(Collectors.toList());
 				
 				Collections.sort(filteredMusic, new TitleComparator());
 				

@@ -31,14 +31,22 @@
 								Stream Release: ${show.streamDate}<br>
 								Content Rating: ${show.contentRating}<br>
 								Season: ${show.season}<br>
-								Episodes: ${show.episodes}<br>
+								
+								<c:if test="${show.episodes ne -1}">
+									Episodes: ${show.episodes}<br>
+								</c:if>
+								
 								Description: ${show.description}<br>
-								User Rating: ${show.userRating}<br>
+								
+								<c:if test="${movie.userRating ne -1}">
+									User Rating: ${movie.userRating}<br>
+								</c:if>
+								
 								coverImgUrl: ${show.coverImgUrl}<br>
 								trailerUrl: ${show.trailerUrl}<br>
 								platform: ${show.platform}
 							</p>
-							<img src="${show.coverImgUrl}">
+						
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>

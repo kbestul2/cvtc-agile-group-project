@@ -59,7 +59,14 @@ public class MusicDaoImpl implements MusicDao {
 				final float userRating = resultSet.getFloat("Rating");
 				final int lengthMS = resultSet.getInt("LengthMS");
 				final String recordLabel = resultSet.getString("RecordLabel");
-				final String coverImgUrl = "https://image.tmdb.org/t/p/" + INSERT_SIZE[4] + resultSet.getString("CoverImgUrl");
+				
+				String coverImgUrlString;
+				if (resultSet.getString("CoverImgUrl").equals("-1")) {
+					coverImgUrlString = "assets/images/ImageUnavailable.png";
+				} else {
+					coverImgUrlString = "https://image.tmdb.org/t/p/" + INSERT_SIZE[4] + resultSet.getString("CoverImgUrl");
+				}
+				final String coverImgUrl = coverImgUrlString;
 				
 				music.add(new Music(title, artist, releaseDate, streamDate, genres, 
 						contentWarning, userRating, lengthMS, recordLabel, coverImgUrl));

@@ -31,7 +31,11 @@
 								Release: ${music.releaseDate}<br>
 								Genres: ${music.genres}<br>
 								Content Warning: ${music.contentWarning}<br>
-								User Rating: ${music.userRating}<br>
+								
+								<c:if test="${movie.userRating ne -1}">
+									User Rating: ${movie.userRating}<br>
+								</c:if>
+								
 								Length: ${music.lengthMS}<br>
 								Record Label: ${music.recordLabel}<br>
 								coverImgUrl: ${music.coverImgUrl}<br>

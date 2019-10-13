@@ -10,6 +10,8 @@ public abstract class Content {
 
 	public abstract Date getStreamDate();
 	
+	public abstract String getGenres();
+	
 	public abstract float getUserRating();
 	
 	public abstract String getCoverImgUrl();

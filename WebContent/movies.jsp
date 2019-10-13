@@ -32,13 +32,17 @@
 								Description: ${movie.description}<br>
 								Genres: ${movie.genres}<br>
 								Content Rating: ${movie.contentRating}<br>
-								User Rating: ${movie.userRating}<br>
+								
+								<c:if test="${movie.userRating ne -1}">
+									User Rating: ${movie.userRating}<br>
+								</c:if>
+								
 								Length: ${movie.length} minutes<br>
 								coverImgUrl: ${movie.coverImgUrl}<br>
 								trailerUrl: ${movie.trailerUrl}<br>
 								platform: ${movie.platform}
 							</p>
-							<img src="${movie.coverImgUrl}">
+						
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
