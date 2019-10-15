@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.cvtc.agile.comparators.TitleComparator;
+import edu.cvtc.agile.comparators.UserRatingComparator;
 import edu.cvtc.agile.dao.ShowDao;
 import edu.cvtc.agile.dao.impl.ShowDaoException;
 import edu.cvtc.agile.dao.impl.ShowDaoImpl;
@@ -61,7 +61,8 @@ public class ShowSearchController extends HttpServlet {
 									.distinct()
 									.collect(Collectors.toList());
 				
-				Collections.sort(filteredShows, new TitleComparator());
+				Collections.sort(filteredShows, new UserRatingComparator());
+				Collections.reverse(filteredShows); // Sort from best to worst
 				
 			}
 			

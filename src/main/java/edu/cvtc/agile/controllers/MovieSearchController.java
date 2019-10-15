@@ -62,6 +62,7 @@ public class MovieSearchController extends HttpServlet {
 									.collect(Collectors.toList());
 				
 				Collections.sort(filteredMovies, new UserRatingComparator());
+				Collections.reverse(filteredMovies); // Sort from best to worst
 				
 			}
 			

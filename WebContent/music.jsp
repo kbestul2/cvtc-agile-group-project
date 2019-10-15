@@ -9,13 +9,13 @@
 	</head>
 	<body>
 		<div id="wrapper">
-		<div class = "searchDiv">
+			<div class = "searchDiv">
 				<form class= "search"action = "MusicSearch" method = "post">
 					<label for= "music"><strong>Search Music:</strong></label>
 					<input name="music">
 					<button type="submit"><i class="fa fa-search"></i></button>
 				</form>
-				</div>
+			</div>
 			<h1>Music</h1>
 			<%@ include file="assets/includes/nav.jsp" %>
 			<div id="mainContent">
@@ -27,20 +27,22 @@
 					<c:otherwise>
 						<c:forEach var="music" items="${music}">
 							<div class="content">
-							<h2>${music.title}</h2>
-							<img src="${music.coverImgUrl}" class="contentImage">
-							<ul class="contentList">
-								<li><span>Artist:</span> ${music.artist}</li>
-								<li><span>Release:</span> ${music.releaseDate}</li>
-								<li><span>Genres:</span> ${music.genres}</li>
-								<li><span>Content Warning:</span> ${music.contentWarning}</li>
-								<c:if test="${music.userRating ne -1}">
-									<li><span>User Rating:</span> ${music.userRating}</li>
-								</c:if>
-								<li><span>Length:</span> ${music.lengthMS}</li>
-								<li><span>Record Label:</span> ${music.recordLabel}</li>
+								<h2>${music.title}</h2>
+								<div class = "imageContainer">
+									<img src="${music.coverImgUrl}" class="contentImage">
+								</div>
+								<ul class="contentList">
+									<li><span>Artist: </span>${music.artist}</li>
+									<li><span>Release: </span>${music.releaseDate}</li>
+									<li class="genres"><span>Genres: </span>${music.genres}</li>
+									<li><span>Content Warning: </span>${music.contentWarning}</li>
+									<c:if test="${music.userRating ne -1}">
+										<li><span>User Rating: </span>${music.userRating}</li>
+									</c:if>
+									<li><span>Length: </span>${music.lengthMS}</li>
+									<li><span>Record Label: </span>${music.recordLabel}</li>
 							</ul>
-						</div>
+							</div>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>

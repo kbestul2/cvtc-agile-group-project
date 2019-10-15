@@ -58,8 +58,6 @@ public class MusicDaoImpl implements MusicDao {
 				final int lengthMS = resultSet.getInt("LengthMS");
 				final String recordLabel = resultSet.getString("RecordLabel");
 				
-				System.out.println("TEST: " + resultSet.getString("CoverImgUrl"));
-				
 				String coverImgUrlString;
 				if (resultSet.getString("CoverImgUrl").equals("-1") || resultSet.getString("CoverImgUrl").isEmpty()) {
 					coverImgUrlString = "assets/images/ImageUnavailable.png";

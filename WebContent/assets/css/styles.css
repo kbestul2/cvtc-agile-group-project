@@ -1,7 +1,6 @@
 body {
 	background-color: rgb(190, 190, 190);
 	background-image: url(../images/whiteAngles.jpg);
-	/*background-size: cover;*/
 	font-family: Maven Pro;
 	color: #fff;
 }
@@ -89,7 +88,7 @@ body {
 
 h1 {
 	font-family: Audiowide;
-	padding-bottom: 0;
+	padding: 0 0 0 5px;
 	font-size: 3.5em;
 	margin-bottom: 0;
 }
@@ -100,6 +99,7 @@ h1 {
 
 .searchDiv { 
 	float: right;
+	padding: 5px 5px 0 0;
 }
 
 /*Search Bar Styling */

@@ -9,13 +9,13 @@
 	</head>
 	<body>
 		<div id="wrapper">
-		<div class = "searchDiv">
+			<div class = "searchDiv">
 				<form class = "search" action = "MovieSearch" method = "post">
 					<label for= "movies"><strong>Search Movies:</strong></label>
 					<input name="movies">
 					<button type="submit"><i class="fa fa-search"></i></button>
 				</form>
-				</div>
+			</div>
 			<h1>Movies</h1>
 			<%@ include file="assets/includes/nav.jsp" %>
 			<div id="mainContent">
@@ -27,21 +27,23 @@
 					<c:otherwise>
 						<c:forEach var="movie" items="${movies}">
 							<div class="content">
-							<h2>${movie.title}</h2>
-							<a href="${movie.trailerUrl}"><img src="${movie.coverImgUrl}" class="contentImage"></a>
-							<ul class="contentList">
-								<li><span>Original Release:</span> ${movie.releaseDate}</li>
-								<li><span>Stream Release:</span> ${movie.streamDate}</li>
-								<li class="description"><span>Description:</span> ${movie.description}</li>
-								<li><span>Genres:</span> ${movie.genres}</li>
-								<li><span>Content Rating:</span> ${movie.contentRating}</li>
-								<c:if test="${movie.userRating ne -1}">
-									<li><span>User Rating:</span> ${movie.userRating}</li>
-								</c:if>
-								<li><span>Length:</span> ${movie.length} minutes</li>
-								<li><span>platform:</span> ${movie.platform}</li>
-							</ul>
-						</div>
+								<h2>${movie.title}</h2>
+								<div class = "imageContainer">
+									<a href="${movie.trailerUrl}" target="_blank"><img src="${movie.coverImgUrl}" class="contentImage"></a>
+								</div>
+								<ul class="contentList">
+									<li><span>Original Release: </span>${movie.releaseDate}</li>
+									<li><span>Stream Release: </span>${movie.streamDate}</li>
+									<li class="description"><span>Description: </span>${movie.description}</li>
+									<li class="genres"><span>Genres: </span>${movie.genres}</li>
+									<li><span>Content Rating: </span>${movie.contentRating}</li>
+									<c:if test="${movie.userRating ne -1}">
+										<li><span>User Rating: </span>${movie.userRating}</li>
+									</c:if>
+									<li><span>Length: </span>${movie.length} minutes</li>
+									<li><span>platform: </span>${movie.platform}</li>
+								</ul>
+							</div>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
