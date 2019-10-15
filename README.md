@@ -79,8 +79,6 @@ GROUP BY s.ShowID
 
 ## Music
 
-### Database is not complete, currently only returns 1 row
-
 Explicit is ageRating in the form of a int-based boolean, 0 = false, 1 = true
 
 ```
@@ -89,7 +87,6 @@ SELECT AlbumID,
     Artist,
     ReleaseDate,
     RecordLabel,
-    LengthMS,
     Explicit,
     Rating,
     CoverImgUrl,
