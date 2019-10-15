@@ -19,7 +19,6 @@ public class MusicDaoImpl implements MusicDao {
 															+ "Artist, "
 															+ "ReleaseDate, "
 															+ "RecordLabel, "
-															+ "LengthMS, "
 															+ "Explicit, "
 															+ "Rating, "
 															+ "CoverImgUrl, "
@@ -53,9 +52,8 @@ public class MusicDaoImpl implements MusicDao {
 				final Date releaseDate = resultSet.getDate("ReleaseDate");
 				final Date streamDate = resultSet.getDate("ReleaseDate");
 				final String genres = resultSet.getString("Genre");
-				final String contentWarning = (resultSet.getBoolean("Explicit") == true) ? "Explicit" : "None";
+				final String contentWarning = (resultSet.getInt("Explicit") == 1) ? "Explicit" : "None";
 				final float userRating = resultSet.getFloat("Rating");
-				final int lengthMS = resultSet.getInt("LengthMS");
 				final String recordLabel = resultSet.getString("RecordLabel");
 				
 				String coverImgUrlString;
@@ -67,7 +65,7 @@ public class MusicDaoImpl implements MusicDao {
 				final String coverImgUrl = coverImgUrlString;
 				
 				music.add(new Music(title, artist, releaseDate, streamDate, genres, 
-						contentWarning, userRating, lengthMS, recordLabel, coverImgUrl));
+						contentWarning, userRating, recordLabel, coverImgUrl));
 				
 			}
 			

@@ -39,7 +39,6 @@
 									<c:if test="${music.userRating ne -1}">
 										<li><span>User Rating: </span>${music.userRating}</li>
 									</c:if>
-									<li><span>Length: </span>${music.lengthMS}</li>
 									<li><span>Record Label: </span>${music.recordLabel}</li>
 							</ul>
 							</div>
