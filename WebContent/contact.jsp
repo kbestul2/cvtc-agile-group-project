@@ -17,11 +17,11 @@
 						streamLineGroup@cvtc.edu
 					</p>
 					<br>
-					<form id="contactForm">      
+					<form id="contactForm" action="EmailSending" method="post">      
 						<input name="name" type="text" class="feedbackText" placeholder="Name" />   
 						<input name="email" type="text" class="feedbackText" placeholder="Email" />
 						<textarea name="text" class="feedbackText" placeholder="Comment"></textarea>
-						<input id="submit" type="submit" value="SUBMIT"/>
+						<input id="submit" type="submit" value="Send"/>
 					</form>
 				</div>
 			</div>
